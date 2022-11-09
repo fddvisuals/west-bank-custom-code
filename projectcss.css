@@ -128,3 +128,40 @@ h4 {
   line-height: 1.1;
   text-align: left;
 }
+#menu {
+  z-index: 1;
+}
+
+#menu a {
+  font-size: 13px;
+  color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 0;
+  padding: 10px;
+  text-decoration: none;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  border-color: #b0b0b2;
+  text-align: center;
+}
+
+#menu a:last-child {
+}
+
+#menu a:hover {
+  background-color: #162131;
+  color: #ffff;
+}
+
+#menu a.active {
+  background-color: #162131;
+  color: #ffffff;
+}
+
+#menu a.active:hover {
+  background: #b0b0b2;
+}
