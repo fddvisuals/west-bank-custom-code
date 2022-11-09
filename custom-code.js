@@ -50,13 +50,13 @@ function renderListings(features) {
           )
           .addTo(map);
       });
-      itemLink.addEventListener("click"),
-        () => {
-          map.flyTo({
-            center: e.features[0].geometry.coordinates,
-            zoom: 16,
-          });
-        };
+      itemLink.addEventListener("click", () => {
+        map.flyTo({
+          center: e.features[0].geometry.coordinates,
+          zoom: 16,
+        });
+      )
+      }
       listingEl.appendChild(itemLink);
     }
     // Show the filter input

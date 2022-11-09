@@ -1,9 +1,9 @@
-#map {
-  /*left: 28%;
+/* #map {
+  left: 28%;
         top: 0;
         bottom: 0;
-        width: 75%;*/
-}
+        width: 75%;
+}*/
 
 .map-overlay fieldset {
   display: none;
@@ -149,8 +149,8 @@ h4 {
   text-align: center;
 }
 
-#menu a:last-child {
-}
+/* #menu a:last-child {
+} */
 
 #menu a:hover {
   background-color: #162131;
