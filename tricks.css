@@ -1,12 +1,11 @@
-<style>
 /* The slider itself */
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
+  -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
   width: 100%; /* Full-width */
   height: 1em; /* Specified height */
-	border-radius: 100vw;
-  background: #1A2423; /* Grey background */
+  border-radius: 100vw;
+  background: #1a2423; /* Grey background */
   outline: none; /* Remove outline */
 }
 
@@ -16,23 +15,22 @@
   appearance: none;
   width: 2.5em; /* Set a specific slider handle width */
   height: 2.5em; /* Slider handle height */
- 	border-radius: 100vw;
-  background: #D9EC7F; /* Green background */
+  border-radius: 100vw;
+  background: #d9ec7f; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
   width: 2.5em; /* Set a specific slider handle width */
   height: 2.5em; /* Slider handle height */
- 	border-radius: 100vw;
-  background: #D9EC7F; /* Green background */
+  border-radius: 100vw;
+  background: #d9ec7f; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
 .mylabel {
-        font-family: Lato;
-        font-size: 18px;
-        font-weight: 800;
-        -webkit-text-fill-color: #d9ec7f;
-      }
-</style>
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: 800;
+  -webkit-text-fill-color: #d9ec7f;
+}
