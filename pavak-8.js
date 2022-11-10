@@ -32,9 +32,9 @@ function renderListings(features) {
         feature.properties.Group == "Militant" ||
         feature.properties.Group == "Militants"
       ) {
-        itemLink.innerHTML = `<b> <p class ="bold-listing-title-mil">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.Date} &nbsp | &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
+        itemLink.innerHTML = `<b> <p class ="bold-listing-title-mil">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.Date} &nbsp | • &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
       } else {
-        itemLink.innerHTML = `<b> <p class ="bold-listing-title-idf">${feature.properties.Group} &nbsp &nbsp ${feature.properties.Date} &nbsp &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
+        itemLink.innerHTML = `<b> <p class ="bold-listing-title-idf">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.Date} &nbsp | • &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
       }
       itemLink.addEventListener("mouseover", () => {
         popup
