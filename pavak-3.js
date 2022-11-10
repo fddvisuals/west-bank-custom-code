@@ -25,14 +25,14 @@ function renderListings(features) {
   if (features.length) {
     for (const feature of features) {
       const itemLink = document.createElement("a");
-      itemLink.href = feature.properties.URL;
+      //itemLink.href = feature.properties.URL;
       itemLink.target = "_blank";
       itemLink.className = "title";
       if (
         feature.properties.Group == "Militant" ||
         feature.properties.Group == "Militants"
       ) {
-        itemLink.innerHTML = `<b> <p class ="bold-listing-title-mil">${feature.properties.Group} &nbsp &nbsp ${feature.properties.Date} &nbsp &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
+        itemLink.innerHTML = `<b> <p class ="bold-listing-title-mil">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.Date} &nbsp | &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
       } else {
         itemLink.innerHTML = `<b> <p class ="bold-listing-title-idf">${feature.properties.Group} &nbsp &nbsp ${feature.properties.Date} &nbsp &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
       }
@@ -50,13 +50,12 @@ function renderListings(features) {
           )
           .addTo(map);
       });
-      // itemLink.addEventListener("click", () => {
-      //   map.flyTo({
-      //     center: e.features[0].geometry.coordinates,
-      //     zoom: 16,
-      //   });
-      // });
-      // }
+      itemLink.addEventListener("click", () => {
+        map.flyTo({
+          center: e.features[0].geometry.coordinates,
+          zoom: 16,
+        });
+      });
       listingEl.appendChild(itemLink);
     }
     // Show the filter input
