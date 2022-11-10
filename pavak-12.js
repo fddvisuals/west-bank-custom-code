@@ -268,8 +268,8 @@ map.on("load", () => {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
       all.className = "filter-button all";
-      map.setFilter("data-driven-circles", bluefilter);
-      map.setFilter("heatmap", bluefilter);
+      !map.setFilter("data-driven-circles", bluefilter);
+      !map.setFilter("heatmap", bluefilter);
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
