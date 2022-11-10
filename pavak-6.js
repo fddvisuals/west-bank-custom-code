@@ -55,7 +55,10 @@ function renderListings(features) {
 
         // When a menu item is clicked, animate the map to center
         // its associated locale and open its popup.
-        map.setView(feature.properties.geometry, 16);
+        map.flyTo({
+          center: features.geometry.coordinates,
+          zoom: 16,
+        });
         //locale.openPopup();
         return false;
       };
