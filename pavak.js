@@ -90,7 +90,8 @@ var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
   if (months == "All") {
-    map.setFilter("null");
+    map.setFilter("data-driven-circles", null);
+    map.setFilter("heatmap", null);
   } else {
     map.setFilter("data-driven-circles", mnthfilter);
     map.setFilter("heatmap", mnthfilter);
@@ -278,7 +279,7 @@ map.on("load", () => {
       map.setFilter("heatmap", monthfilter);
     };
   });
-  filterBy(7);
+  filterBy(9);
   document.getElementById("slider").addEventListener("input", (e) => {
     const month = parseInt(e.target.value, 10);
     filterBy(month);
