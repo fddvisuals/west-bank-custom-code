@@ -91,7 +91,7 @@ const months = [
   "August 2022",
   "September 2022",
   "October 2022",
-  "All",
+  "All (Mar to Oct 22)",
 ];
 var globalvariablemonth;
 function filterBy(month) {
