@@ -44,9 +44,10 @@ function renderListings(features) {
               feature.properties.Date +
               " | " +
               feature.properties.Geocode_Name +
-              "</b><p>"
-            //     +
-            //     feature.properties.Notes +
+              "</b><p>" +
+              feature.properties.Notes +
+              "</p>"
+            // +
             //     '</p><p> <img width="200px" src="https://github.com/fddvisuals/west-bank-images/blob/main/ezgif-5-fedaa64c27.gif?raw=true"</p>'
           )
           .addTo(map);
@@ -156,9 +157,9 @@ map.on("load", () => {
           feature.properties.Date +
           " | " +
           feature.properties.Geocode_Name +
-          "</b><p>"
-        // +
-        // feature.properties.Notes +
+          "</b><p>" +
+          feature.properties.Notes +
+          "</p>"
         // '</p><p> <img width="200px" src="https://github.com/fddvisuals/west-bank-images/blob/main/ezgif-5-fedaa64c27.gif?raw=true"</p>'
       )
       .addTo(map);
