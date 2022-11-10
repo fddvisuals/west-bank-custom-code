@@ -54,8 +54,8 @@ function renderListings(features) {
         map.flyTo({
           center: e.features[0].geometry.coordinates,
           zoom: 16,
-        });
-      )
+        })
+      });
       }
       listingEl.appendChild(itemLink);
     }
