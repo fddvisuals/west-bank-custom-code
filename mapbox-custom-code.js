@@ -50,13 +50,13 @@ function renderListings(features) {
           )
           .addTo(map);
       });
-      itemLink.addEventListener("click", () => {
-        map.flyTo({
-          center: e.features[0].geometry.coordinates,
-          zoom: 16,
-        })
-      });
-      }
+      // itemLink.addEventListener("click", () => {
+      //   map.flyTo({
+      //     center: e.features[0].geometry.coordinates,
+      //     zoom: 16,
+      //   });
+      // });
+      // }
       listingEl.appendChild(itemLink);
     }
     // Show the filter input
@@ -84,17 +84,20 @@ const months = [
   "August 2022",
   "September 2022",
   "October 2022",
-  "November 2022",
-  "December 2022",
+  "All",
 ];
 var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
-  map.setFilter("data-driven-circles", mnthfilter);
-  map.setFilter("heatmap", mnthfilter);
-  // Set the label to the month
-  document.getElementById("month").textContent = months[month];
-  globalThis.globalvariablemonth = month + 1;
+  if (months == "All") {
+    map.setFilter("null");
+  } else {
+    map.setFilter("data-driven-circles", mnthfilter);
+    map.setFilter("heatmap", mnthfilter);
+    // Set the label to the month
+    document.getElementById("month").textContent = months[month];
+    globalThis.globalvariablemonth = month + 1;
+  }
 }
 function normalize(string) {
   return string.trim().toLowerCase();
