@@ -89,7 +89,7 @@ const months = [
 var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
-  if (months == "All") {
+  if (month == "9") {
     map.setFilter("data-driven-circles", null);
     map.setFilter("heatmap", null);
   } else {
@@ -279,7 +279,7 @@ map.on("load", () => {
       map.setFilter("heatmap", monthfilter);
     };
   });
-  filterBy(9);
+  filterBy(10);
   document.getElementById("slider").addEventListener("input", (e) => {
     const month = parseInt(e.target.value, 10);
     filterBy(month);
