@@ -25,7 +25,7 @@ function renderListings(features) {
   if (features.length) {
     for (const feature of features) {
       const itemLink = document.createElement("a");
-      //itemLink.href = feature.properties.URL;
+      itemLink.href = "#";
       itemLink.target = "_blank";
       itemLink.className = "title";
       if (
@@ -50,12 +50,15 @@ function renderListings(features) {
           )
           .addTo(map);
       });
-      itemLink.addEventListener("click", () => {
-        map.flyTo({
-          center: e.features[0].geometry.coordinates,
-          zoom: 16,
-        });
-      });
+      itemLink.onclick = function () {
+        // setActive(listing);
+
+        // When a menu item is clicked, animate the map to center
+        // its associated locale and open its popup.
+        map.setView(locale.getLatLng(), 16);
+        locale.openPopup();
+        return false;
+      };
       listingEl.appendChild(itemLink);
     }
     // Show the filter input
