@@ -279,7 +279,7 @@ map.on("load", () => {
       map.setFilter("data-driven-circles", redfilter);
       map.setFilter("heatmap", redfilter);
     };
-    all.onclick = function () {
+    all.onclick = function (e) {
       red.className = "filter-button red";
       blue.className = "filter-button bluew";
       this.className = "filter-button all active";
