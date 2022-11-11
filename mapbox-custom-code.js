@@ -94,12 +94,10 @@ const months = [
   "All (Mar to Oct 22)",
 ];
 var globalvariablemonth;
-var selectedFilter;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
   if (month == "10") {
-    map.setFilter("data-driven-circles", ["has", "mm"]);
-    console.log(selectedFilter);
+    map.setFilter("data-driven-circles", ["has", "Group"]);
   } else {
     map.setFilter("data-driven-circles", mnthfilter);
     map.setFilter("heatmap", mnthfilter);
@@ -272,7 +270,6 @@ map.on("load", () => {
       all.className = "filter-button all";
       !map.setFilter("data-driven-circles", bluefilter);
       !map.setFilter("heatmap", bluefilter);
-      globalThis.selectedFilter = "blue";
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
@@ -280,7 +277,6 @@ map.on("load", () => {
       all.className = "filter-button all";
       map.setFilter("data-driven-circles", redfilter);
       map.setFilter("heatmap", redfilter);
-      globalThis.selectedFilter = "red";
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
@@ -290,7 +286,6 @@ map.on("load", () => {
       map.setFilter("heatmap", null);
       map.setFilter("data-driven-circles", monthfilter);
       map.setFilter("heatmap", monthfilter);
-      globalThis.selectedFilter = "all";
     };
   });
   filterBy(10);
