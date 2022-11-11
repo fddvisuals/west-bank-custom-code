@@ -124,36 +124,14 @@ var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
   if (month == "10") {
-    map.setFilter("data-driven-circles", ["match", ["get", "Group"]]);
-    // map.setFilter("heatmap");
-    document.getElementById("month").textContent = months[month];
-    globalThis.globalvariablemonth = month + 1;
+    map.setFilter("data-driven-circles", null);
   } else {
-    if (selectedFilter == "blue") {
-      map.setFilter("data-driven-circles", mnthfilter);
-      map.setFilter("heatmap", mnthfilter);
-      map.setFilter("data-driven-circles", "all", [
-        "match",
-        ["get", "Group"],
-        [
-          "IDF, Shin Bet",
-          "IDF",
-          "Shin Bet",
-          "Israel Police, Shin Bet",
-          "Israel Police",
-          "IDF, Israel Police",
-        ],
-        true,
-        false,
-      ]);
-    } else {
-      map.setFilter("data-driven-circles", mnthfilter);
-      map.setFilter("heatmap", mnthfilter);
-    }
-    // Set the label to the month
-    document.getElementById("month").textContent = months[month];
-    globalThis.globalvariablemonth = month + 1;
+    map.setFilter("data-driven-circles", mnthfilter);
+    map.setFilter("heatmap", mnthfilter);
   }
+  // Set the label to the month
+  document.getElementById("month").textContent = months[month];
+  globalThis.globalvariablemonth = month + 1;
 }
 function normalize(string) {
   return string.trim().toLowerCase();
