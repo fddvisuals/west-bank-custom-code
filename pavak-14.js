@@ -132,25 +132,20 @@ function filterBy(month) {
     if (selectedFilter == "blue") {
       map.setFilter("data-driven-circles", mnthfilter);
       map.setFilter("heatmap", mnthfilter);
-      map.setFilter(
-        "data-driven-circles",
-        "all",
+      map.setFilter("data-driven-circles", "all", [
+        "match",
+        ["get", "Group"],
         [
-          "match",
-          ["get", "Group"],
-          [
-            "IDF, Shin Bet",
-            "IDF",
-            "Shin Bet",
-            "Israel Police, Shin Bet",
-            "Israel Police",
-            "IDF, Israel Police",
-          ],
-          true,
-          false,
+          "IDF, Shin Bet",
+          "IDF",
+          "Shin Bet",
+          "Israel Police, Shin Bet",
+          "Israel Police",
+          "IDF, Israel Police",
         ],
-        ["match", ["get", "mm"], [globalvariablemonth], true, false]
-      );
+        true,
+        false,
+      ]);
     } else {
       map.setFilter("data-driven-circles", mnthfilter);
       map.setFilter("heatmap", mnthfilter);
