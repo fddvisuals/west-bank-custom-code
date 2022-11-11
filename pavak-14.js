@@ -11,6 +11,33 @@ const map = new mapboxgl.Map({
   minZoom: 6,
   //maxBounds: bounds
 });
+let bluefilter = [
+  "all",
+  [
+    "match",
+    ["get", "Group"],
+    [
+      "IDF, Shin Bet",
+      "IDF",
+      "Shin Bet",
+      "Israel Police, Shin Bet",
+      "Israel Police",
+      "IDF, Israel Police",
+    ],
+    true,
+    false,
+  ],
+  ["match", ["get", "mm"], [globalvariablemonth], true, false],
+];
+let redfilter = [
+  "all",
+  ["match", ["get", "Group"], ["Militants", "Militant", "Clash"], true, false],
+  ["match", ["get", "mm"], [globalvariablemonth], true, false],
+];
+let monthfilter = [
+  "all",
+  ["match", ["get", "mm"], [globalvariablemonth], true, false],
+];
 let wbevents = [];
 const popup = new mapboxgl.Popup({
   closeButton: false,
@@ -102,10 +129,32 @@ function filterBy(month) {
     document.getElementById("month").textContent = months[month];
     globalThis.globalvariablemonth = month + 1;
   } else {
-    if (selectedFilter == "blue")
+    if (selectedFilter == "blue") {
       map.setFilter("data-driven-circles", mnthfilter);
-    map.setFilter("heatmap", mnthfilter);
-    map.setFilter("data-driven-circles", bluefilter);
+      map.setFilter("heatmap", mnthfilter);
+      map.setFilter(
+        "data-driven-circles",
+        "all",
+        [
+          "match",
+          ["get", "Group"],
+          [
+            "IDF, Shin Bet",
+            "IDF",
+            "Shin Bet",
+            "Israel Police, Shin Bet",
+            "Israel Police",
+            "IDF, Israel Police",
+          ],
+          true,
+          false,
+        ],
+        ["match", ["get", "mm"], [globalvariablemonth], true, false]
+      );
+    } else {
+      map.setFilter("data-driven-circles", mnthfilter);
+      map.setFilter("heatmap", mnthfilter);
+    }
     // Set the label to the month
     document.getElementById("month").textContent = months[month];
     globalThis.globalvariablemonth = month + 1;
@@ -234,39 +283,7 @@ map.on("load", () => {
     var blue = document.getElementById("idf-button");
     var red = document.getElementById("mil-button");
     var all = document.getElementById("show-all-button");
-    let bluefilter = [
-      "all",
-      [
-        "match",
-        ["get", "Group"],
-        [
-          "IDF, Shin Bet",
-          "IDF",
-          "Shin Bet",
-          "Israel Police, Shin Bet",
-          "Israel Police",
-          "IDF, Israel Police",
-        ],
-        true,
-        false,
-      ],
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
-    let redfilter = [
-      "all",
-      [
-        "match",
-        ["get", "Group"],
-        ["Militants", "Militant", "Clash"],
-        true,
-        false,
-      ],
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
-    let monthfilter = [
-      "all",
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
+
     var selectedFilter = "";
     blue.onclick = function (e) {
       red.className = "filter-button red";
