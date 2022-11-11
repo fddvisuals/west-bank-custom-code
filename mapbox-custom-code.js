@@ -94,6 +94,7 @@ const months = [
   "All (Mar to Oct 22)",
 ];
 var globalvariablemonth;
+var selectedFilter;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
   if (month == "10") {
@@ -265,7 +266,6 @@ map.on("load", () => {
       ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
 
-    var selectedFilter = "";
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
