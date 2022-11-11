@@ -97,7 +97,7 @@ var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
   if (month == "10") {
-    map.setFilter("data-driven-circles", null);
+    map.setFilter("data-driven-circles", ["has", "mm"]);
   } else {
     map.setFilter("data-driven-circles", mnthfilter);
     map.setFilter("heatmap", mnthfilter);
