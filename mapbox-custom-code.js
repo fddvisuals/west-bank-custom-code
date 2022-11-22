@@ -157,8 +157,8 @@ map.on("load", () => {
           feature.properties.Geocode_Name +
           "</b><p>" +
           feature.properties.Notes +
-          "</p>"
-        // '</p><p> <img width="200px" src="https://github.com/fddvisuals/west-bank-images/blob/main/ezgif-5-fedaa64c27.gif?raw=true"</p>'
+          "</p>" +
+          '</p><p> <img width="200px" src="https://drive.google.com/file/d/16wylaZmhKuZL5mCu2PRXXnxvh-KBgrnK/view?usp=sharing"</p>'
       )
       .addTo(map);
   });
