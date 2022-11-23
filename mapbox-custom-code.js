@@ -15,6 +15,13 @@ let wbevents = [];
 const popup = new mapboxgl.Popup({
   closeButton: false,
 });
+filterBy(10);
+document.getElementById("slider").addEventListener("input", (e) => {
+  const month = parseInt(e.target.value, 10);
+  filterBy(month);
+  globalThis.globalvariablemonth = month + 1;
+});
+renderListings([]);
 const filterGroup = document.getElementById("filter-group");
 const filterEl = document.getElementById("feature-filter");
 const listingEl = document.getElementById("feature-listing");
@@ -288,11 +295,4 @@ map.on("load", () => {
       map.setFilter("heatmap", monthfilter);
     };
   });
-  filterBy(10);
-  document.getElementById("slider").addEventListener("input", (e) => {
-    const month = parseInt(e.target.value, 10);
-    filterBy(month);
-    globalThis.globalvariablemonth = month + 1;
-  });
-  renderListings([]);
 });
