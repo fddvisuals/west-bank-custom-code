@@ -15,13 +15,7 @@ let wbevents = [];
 const popup = new mapboxgl.Popup({
   closeButton: false,
 });
-filterBy(10);
-document.getElementById("slider").addEventListener("input", (e) => {
-  const month = parseInt(e.target.value, 10);
-  filterBy(month);
-  globalThis.globalvariablemonth = month + 1;
-});
-renderListings([]);
+
 const filterGroup = document.getElementById("filter-group");
 const filterEl = document.getElementById("feature-filter");
 const listingEl = document.getElementById("feature-listing");
@@ -100,6 +94,14 @@ const months = [
   "October 2022",
   "All (Mar to Oct 22)",
 ];
+
+filterBy(10);
+document.getElementById("slider").addEventListener("input", (e) => {
+  const month = parseInt(e.target.value, 10);
+  filterBy(month);
+  globalThis.globalvariablemonth = month + 1;
+});
+renderListings([]);
 var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
