@@ -318,7 +318,7 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", blueall);
         map.setFilter("heatmap", blueall);
       }
-      isclicked = "blue";
+      isclicked = 1;
       globalThis.globalisclicked = isclicked;
     };
     red.onclick = function (e) {
@@ -332,7 +332,7 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", redall);
         map.setFilter("heatmap", redall);
       }
-      isclicked = "red";
+      isclicked = 2;
       globalThis.globalisclicked = isclicked;
     };
     all.onclick = function (e) {
@@ -348,7 +348,7 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", null);
         map.setFilter("heatmap", null);
       }
-      isclicked = "all";
+      isclicked = 3;
       globalThis.globalisclicked = isclicked;
     };
   });
@@ -388,12 +388,12 @@ map.on("load", () => {
       map.setFilter("data-driven-circles", allfilter);
       map.setFilter("heatmap", allfilter);
     } else {
-      if (globalisclicked == "blue") {
+      if (globalisclicked == 1) {
         map.setFilter("data-driven-circles", bluefilter1);
         map.setFilter("heatmap", bluefilter1);
         map.setFilter("data-driven-circles", mnthfilter);
         map.setFilter("heatmap", mnthfilter);
-      } else if (globalisclicked == "red") {
+      } else if (globalisclicked == 2) {
         map.setFilter("data-driven-circles", redfilter1);
         map.setFilter("heatmap", redfilter1);
         map.setFilter("data-driven-circles", mnthfilter);
