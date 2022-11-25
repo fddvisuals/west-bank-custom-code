@@ -316,13 +316,7 @@ map.on("load", () => {
       ],
       // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
-    filterBy(11);
-    document.getElementById("slider").addEventListener("input", (e) => {
-      const month = parseInt(e.target.value, 10);
-      filterBy(month);
-      globalThis.globalvariablemonth = month + 1;
-    });
-    renderListings([]);
+
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
@@ -362,10 +356,11 @@ map.on("load", () => {
       }
     };
   });
-  // filterBy(11);
-  // document.getElementById("slider").addEventListener("input", (e) => {
-  //   const month = parseInt(e.target.value, 10);
-  //   filterBy(month);
-  //   globalThis.globalvariablemonth = month + 1;
-  // });
+  filterBy(11);
+  document.getElementById("slider").addEventListener("input", (e) => {
+    const month = parseInt(e.target.value, 10);
+    filterBy(month);
+    globalThis.globalvariablemonth = month + 1;
+  });
+  renderListings([]);
 });
