@@ -413,5 +413,5 @@ map.on("load", () => {
     filterBy(month);
     globalThis.globalvariablemonth = month + 1;
   });
-  // renderListings([]);
+  renderListings([]);
 });
