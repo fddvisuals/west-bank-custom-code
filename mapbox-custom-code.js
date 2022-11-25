@@ -362,6 +362,7 @@ map.on("load", () => {
     ["match", ["get", "mm"], [globalvariablemonth], true, false],
   ];
   //filterby function
+  const mnthfilter = [];
   function filterBy(month) {
     if (globalisclicked == 1) {
       let mnthfilter = [
