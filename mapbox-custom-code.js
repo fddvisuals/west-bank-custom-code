@@ -116,6 +116,7 @@ let allfilter = [
   ],
 ];
 var globalvariablemonth;
+var globalisclicked;
 
 function normalize(string) {
   return string.trim().toLowerCase();
@@ -305,7 +306,7 @@ map.on("load", () => {
       ],
       // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
-
+    var isclicked;
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
@@ -317,6 +318,8 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", blueall);
         map.setFilter("heatmap", blueall);
       }
+      isclicked = "blue";
+      globalThis.globalisclicked = isclicked;
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
@@ -329,6 +332,8 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", redall);
         map.setFilter("heatmap", redall);
       }
+      isclicked = "red";
+      globalThis.globalisclicked = isclicked;
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
@@ -343,6 +348,8 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", null);
         map.setFilter("heatmap", null);
       }
+      isclicked = "all";
+      globalThis.globalisclicked = isclicked;
     };
   });
 
@@ -355,6 +362,16 @@ map.on("load", () => {
     } else {
       map.setFilter("data-driven-circles", mnthfilter);
       map.setFilter("heatmap", mnthfilter);
+      if (globalisclicked == "blue") {
+        map.setFilter("data-driven-circles", bluefilter);
+        map.setFilter("heatmap", bluefilter);
+      } else if (globalisclicked == "red") {
+        map.setFilter("data-driven-circles", redfilter);
+        map.setFilter("heatmap", redfilter);
+      } else {
+        map.setFilter("data-driven-circles", mnthfilter);
+        map.setFilter("heatmap", mnthfilter);
+      }
     }
     // Set the label to the month
     document.getElementById("month").textContent = months[month];
