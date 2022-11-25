@@ -405,6 +405,7 @@ map.on("load", () => {
     // Set the label to the month
     document.getElementById("month").textContent = months[month];
     globalThis.globalvariablemonth = month + 1;
+    renderListings([]);
   }
 
   filterBy(11);
