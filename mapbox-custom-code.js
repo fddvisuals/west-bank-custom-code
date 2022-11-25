@@ -325,8 +325,10 @@ map.on("load", () => {
       if (globalvariablemonth != 11) {
         !map.setFilter("data-driven-circles", bluefilter);
         !map.setFilter("heatmap", bluefilter);
-      } else !map.setFilter("data-driven-circles", blueall);
-      !map.setFilter("heatmap", blueall);
+      } else {
+        !map.setFilter("data-driven-circles", blueall);
+        !map.setFilter("heatmap", blueall);
+      }
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
@@ -335,8 +337,10 @@ map.on("load", () => {
       if (globalvariablemonth != 11) {
         !map.setFilter("data-driven-circles", redfilter);
         !map.setFilter("heatmap", red);
-      } else !map.setFilter("data-driven-circles", redall);
-      !map.setFilter("heatmap", redall);
+      } else {
+        !map.setFilter("data-driven-circles", redall);
+        !map.setFilter("heatmap", redall);
+      }
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
