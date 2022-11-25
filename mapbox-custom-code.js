@@ -381,7 +381,7 @@ map.on("load", () => {
           true,
           false,
         ],
-        ["match", ["get", "mm"], [globalvariablemonth], true, false],
+        ["match", ["get", "mm"], [month + 1], true, false],
       ];
     } else if (globalisclicked == 2) {
       let mnthfilter = [
@@ -393,7 +393,7 @@ map.on("load", () => {
           true,
           false,
         ],
-        ["match", ["get", "mm"], [globalvariablemonth], true, false],
+        ["match", ["get", "mm"], [month + 1], true, false],
       ];
     } else {
       let mnthfilter = ["==", "mm", month + 1];
