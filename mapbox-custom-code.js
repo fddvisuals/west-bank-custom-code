@@ -382,6 +382,7 @@ map.on("load", () => {
   function filterBy(month) {
     const mnthfilter = ["==", "mm", month + 1];
     console.log(globalisclicked);
+    console.log(globalvariablemonth);
     if (month == "11") {
       map.setFilter("data-driven-circles", allfilter);
       map.setFilter("heatmap", allfilter);
@@ -405,7 +406,6 @@ map.on("load", () => {
     // Set the label to the month
     document.getElementById("month").textContent = months[month];
     globalThis.globalvariablemonth = month + 1;
-    renderListings([]);
   }
 
   filterBy(11);
