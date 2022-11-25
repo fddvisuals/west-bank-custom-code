@@ -365,7 +365,7 @@ map.on("load", () => {
       true,
       false,
     ],
-    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+    // ["match", ["get", "mm"], [globalvariablemonth], true, false],
   ];
   let redfilter1 = [
     "all",
@@ -376,7 +376,7 @@ map.on("load", () => {
       true,
       false,
     ],
-    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+    // ["match", ["get", "mm"], [globalvariablemonth], true, false],
   ];
   //filterby function
   function filterBy(month) {
