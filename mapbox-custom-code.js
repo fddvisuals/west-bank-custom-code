@@ -307,6 +307,7 @@ map.on("load", () => {
       // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     var isclicked = 3;
+    globalThis.globalisclicked = isclicked;
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
