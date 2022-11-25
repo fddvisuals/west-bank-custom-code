@@ -199,6 +199,19 @@ map.on("load", () => {
     }
   });
   map.on("idle", () => {
+    const features = map.queryRenderedFeatures({
+      layers: ["data-driven-circles"],
+    });
+    if (features) {
+      const uniqueFeatures = getUniqueFeatures(features, "wb-id");
+      // Populate features for the listing overlay.
+      renderListings(uniqueFeatures);
+      // Clear the input container
+      filterEl.value = "";
+      // Store the current features in sn `wbevents` variable to later use for filtering on `keyup`.
+      wbevents = uniqueFeatures;
+    }
+  });
     if (!map.getLayer("heatmap") || !map.getLayer("data-driven-circles")) {
       return;
     }
