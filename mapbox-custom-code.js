@@ -321,6 +321,7 @@ map.on("load", () => {
       }
       isclicked = 1;
       globalThis.globalisclicked = isclicked;
+      console.log(globalisclicked);
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
@@ -335,6 +336,7 @@ map.on("load", () => {
       }
       isclicked = 2;
       globalThis.globalisclicked = isclicked;
+      console.log(globalisclicked);
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
@@ -351,6 +353,7 @@ map.on("load", () => {
       }
       isclicked = 3;
       globalThis.globalisclicked = isclicked;
+      console.log(globalisclicked);
     };
   });
   let bluefilter1 = [
@@ -408,7 +411,7 @@ map.on("load", () => {
     document.getElementById("month").textContent = months[month];
     globalThis.globalvariablemonth = month + 1;
   }
-  console.log(globalisclicked);
+
   filterBy(11);
   document.getElementById("slider").addEventListener("input", (e) => {
     const month = parseInt(e.target.value, 10);
