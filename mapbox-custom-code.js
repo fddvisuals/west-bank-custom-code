@@ -92,7 +92,7 @@ const months = [
   "August 2022",
   "September 2022",
   "October 2022",
-  "November 2022)",
+  "November 2022",
   "All",
 ];
 
@@ -249,7 +249,7 @@ map.on("load", () => {
         true,
         false,
       ],
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
+      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     let redfilter = [
       "all",
@@ -260,7 +260,7 @@ map.on("load", () => {
         true,
         false,
       ],
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
+      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     let monthfilter = [
       "all",
