@@ -37,7 +37,6 @@ function renderListings(features) {
       } else {
         itemLink.innerHTML = `<b> <p class ="bold-listing-title-idf">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.formatted_date} &nbsp | • &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
       }
-      <a href="#" class="temp-link-block w-inline-block"></a>;
       itemLink.addEventListener("mouseover", () => {
         popup
           .setLngLat(feature.geometry.coordinates)
