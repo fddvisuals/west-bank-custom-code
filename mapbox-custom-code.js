@@ -321,7 +321,7 @@ map.on("load", () => {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
       all.className = "filter-button all";
-      if (monthfilter != 11) {
+      if (globalvariablemonth != 11) {
         map.setFilter("data-driven-circles", bluefilter);
         map.setFilter("heatmap", bluefilter);
       } else {
@@ -333,7 +333,7 @@ map.on("load", () => {
       blue.className = "filter-button bluew";
       this.className = "filter-button red active";
       all.className = "filter-button all";
-      if (monthfilter != 11) {
+      if (globalvariablemonth != 11) {
         map.setFilter("data-driven-circles", redfilter);
         map.setFilter("heatmap", redfilter);
       } else {
