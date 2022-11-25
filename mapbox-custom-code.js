@@ -395,8 +395,8 @@ map.on("load", () => {
         map.setFilter("heatmap", mnthfilter);
       } else if (globalisclicked == "red") {
         map.setFilter("data-driven-circles", redfilter1);
-        map.setFilter("heatmap", redfilter);
-        map.setFilter("data-driven-circles", mnthfilter1);
+        map.setFilter("heatmap", redfilter1);
+        map.setFilter("data-driven-circles", mnthfilter);
         map.setFilter("heatmap", mnthfilter);
       } else {
         map.setFilter("data-driven-circles", mnthfilter);
