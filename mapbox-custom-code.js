@@ -349,24 +349,7 @@ map.on("load", () => {
       globalThis.globalisclicked = 3;
     };
   });
-  let bluefilter1 = [
-    "all",
-    [
-      "match",
-      ["get", "Group"],
-      [
-        "IDF, Shin Bet",
-        "IDF",
-        "Shin Bet",
-        "Israel Police, Shin Bet",
-        "Israel Police",
-        "IDF, Israel Police",
-      ],
-      true,
-      false,
-    ],
-    ["match", ["get", "mm"], [globalvariablemonth], true, false],
-  ];
+  let bluefilter1 = [];
   let redfilter1 = [
     "all",
     [
@@ -380,29 +363,64 @@ map.on("load", () => {
   ];
   //filterby function
   function filterBy(month) {
-    const mnthfilter = ["==", "mm", month + 1];
-    console.log(globalisclicked);
-    console.log(globalvariablemonth);
-    if (month == "11") {
-      map.setFilter("data-driven-circles", allfilter);
-      map.setFilter("heatmap", allfilter);
+    if (globalisclicked == 1) {
+      let mnthfilter = [
+        "all",
+        [
+          "match",
+          ["get", "Group"],
+          [
+            "IDF, Shin Bet",
+            "IDF",
+            "Shin Bet",
+            "Israel Police, Shin Bet",
+            "Israel Police",
+            "IDF, Israel Police",
+          ],
+          true,
+          false,
+        ],
+        ["match", ["get", "mm"], [globalvariablemonth], true, false],
+      ];
+    } else if (globalisclicked == 2) {
+      let mnthfilter = [
+        "all",
+        [
+          "match",
+          ["get", "Group"],
+          ["Militants", "Militant", "Clash"],
+          true,
+          false,
+        ],
+        ["match", ["get", "mm"], [globalvariablemonth], true, false],
+      ];
     } else {
-      if (globalisclicked == 1) {
-        // map.setFilter("data-driven-circles", mnthfilter);
-        // map.setFilter("heatmap", mnthfilter);
-        map.setFilter("data-driven-circles", bluefilter1);
-        map.setFilter("heatmap", bluefilter1);
-      } else if (globalisclicked == 2) {
-        // map.setFilter("data-driven-circles", mnthfilter);
-        // map.setFilter("heatmap", mnthfilter);
-        map.setFilter("data-driven-circles", redfilter1);
-        map.setFilter("heatmap", redfilter1);
-      } else {
-        console.log("else");
-        map.setFilter("data-driven-circles", mnthfilter);
-        map.setFilter("heatmap", mnthfilter);
-      }
+      const mnthfilter = ["==", "mm", month + 1];
     }
+    map.setFilter("data-driven-circles", mnthfilter);
+    map.setFilter("heatmap", mnthfilter);
+    // console.log(globalisclicked);
+    // console.log(globalvariablemonth);
+    // if (month == "11") {
+    //   map.setFilter("data-driven-circles", allfilter);
+    //   map.setFilter("heatmap", allfilter);
+    // } else {
+    //   if (globalisclicked == 1) {
+    //     map.setFilter("data-driven-circles", mnthfilter);
+    //     map.setFilter("heatmap", mnthfilter);
+    //     map.setFilter("data-driven-circles", bluefilter1);
+    //     map.setFilter("heatmap", bluefilter1);
+    //   } else if (globalisclicked == 2) {
+    //     map.setFilter("data-driven-circles", mnthfilter);
+    //     map.setFilter("heatmap", mnthfilter);
+    //     map.setFilter("data-driven-circles", redfilter1);
+    //     map.setFilter("heatmap", redfilter1);
+    //   } else {
+    //     console.log("else");
+    //     map.setFilter("data-driven-circles", mnthfilter);
+    //     map.setFilter("heatmap", mnthfilter);
+    //   }
+    // }
     // Set the label to the month
     document.getElementById("month").textContent = months[month];
     globalThis.globalvariablemonth = month + 1;
