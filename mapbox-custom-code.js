@@ -352,7 +352,35 @@ map.on("load", () => {
       globalThis.globalisclicked = isclicked;
     };
   });
-
+  let bluefilter = [
+    "all",
+    [
+      "match",
+      ["get", "Group"],
+      [
+        "IDF, Shin Bet",
+        "IDF",
+        "Shin Bet",
+        "Israel Police, Shin Bet",
+        "Israel Police",
+        "IDF, Israel Police",
+      ],
+      true,
+      false,
+    ],
+    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
+  let redfilter = [
+    "all",
+    [
+      "match",
+      ["get", "Group"],
+      ["Militants", "Militant", "Clash"],
+      true,
+      false,
+    ],
+    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
   //filterby function
   function filterBy(month) {
     const mnthfilter = ["==", "mm", month + 1];
