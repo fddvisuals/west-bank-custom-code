@@ -360,15 +360,19 @@ map.on("load", () => {
       map.setFilter("data-driven-circles", allfilter);
       map.setFilter("heatmap", allfilter);
     } else {
-      map.setFilter("data-driven-circles", mnthfilter);
-      map.setFilter("heatmap", mnthfilter);
       if (globalisclicked == "blue") {
         map.setFilter("data-driven-circles", bluefilter);
         map.setFilter("heatmap", bluefilter);
+        map.setFilter("data-driven-circles", mnthfilter);
+        map.setFilter("heatmap", mnthfilter);
       } else if (globalisclicked == "red") {
         map.setFilter("data-driven-circles", redfilter);
         map.setFilter("heatmap", redfilter);
+        map.setFilter("data-driven-circles", mnthfilter);
+        map.setFilter("heatmap", mnthfilter);
       } else {
+        map.setFilter("data-driven-circles", mnthfilter);
+        map.setFilter("heatmap", mnthfilter);
         map.setFilter("data-driven-circles", mnthfilter);
         map.setFilter("heatmap", mnthfilter);
       }
