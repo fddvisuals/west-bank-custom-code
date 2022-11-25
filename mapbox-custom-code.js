@@ -345,10 +345,13 @@ map.on("load", () => {
       }
     };
   });
+
+  //filterby function
   function filterBy(month) {
     const mnthfilter = ["==", "mm", month + 1];
     if (month == "11") {
       map.setFilter("data-driven-circles", allfilter);
+      map.setFilter("heatmap", allfilter);
     } else {
       map.setFilter("data-driven-circles", mnthfilter);
       map.setFilter("heatmap", mnthfilter);
