@@ -170,7 +170,7 @@ map.on("load", () => {
           "</b><p>" +
           feature.properties.Notes +
           "</p>" +
-          '<iframe src="https://drive.google.com/file/d/1BtKxa6SCp5flUZl4XhajRkGHQblJpzWG/preview" width="150" height="80" allow="autoplay"></iframe>'
+          '<iframe src="https://drive.google.com/file/d/1BtKxa6SCp5flUZl4XhajRkGHQblJpzWG/preview" width="640" height="480" allow="autoplay"></iframe>'
       )
 
       .addTo(map);
