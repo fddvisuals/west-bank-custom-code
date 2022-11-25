@@ -352,7 +352,7 @@ map.on("load", () => {
       globalThis.globalisclicked = isclicked;
     };
   });
-  let bluefilter = [
+  let bluefilter1 = [
     "all",
     [
       "match",
@@ -368,9 +368,9 @@ map.on("load", () => {
       true,
       false,
     ],
-    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+    //["match", ["get", "mm"], [globalvariablemonth], true, false],
   ];
-  let redfilter = [
+  let redfilter1 = [
     "all",
     [
       "match",
@@ -379,7 +379,7 @@ map.on("load", () => {
       true,
       false,
     ],
-    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+    //["match", ["get", "mm"], [globalvariablemonth], true, false],
   ];
   //filterby function
   function filterBy(month) {
@@ -389,18 +389,16 @@ map.on("load", () => {
       map.setFilter("heatmap", allfilter);
     } else {
       if (globalisclicked == "blue") {
-        map.setFilter("data-driven-circles", bluefilter);
-        map.setFilter("heatmap", bluefilter);
+        map.setFilter("data-driven-circles", bluefilter1);
+        map.setFilter("heatmap", bluefilter1);
         map.setFilter("data-driven-circles", mnthfilter);
         map.setFilter("heatmap", mnthfilter);
       } else if (globalisclicked == "red") {
-        map.setFilter("data-driven-circles", redfilter);
+        map.setFilter("data-driven-circles", redfilter1);
         map.setFilter("heatmap", redfilter);
-        map.setFilter("data-driven-circles", mnthfilter);
+        map.setFilter("data-driven-circles", mnthfilter1);
         map.setFilter("heatmap", mnthfilter);
       } else {
-        map.setFilter("data-driven-circles", mnthfilter);
-        map.setFilter("heatmap", mnthfilter);
         map.setFilter("data-driven-circles", mnthfilter);
         map.setFilter("heatmap", mnthfilter);
       }
