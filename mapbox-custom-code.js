@@ -395,7 +395,7 @@ map.on("load", () => {
         ["match", ["get", "mm"], [globalvariablemonth], true, false],
       ];
     } else {
-      const mnthfilter = ["==", "mm", month + 1];
+      let mnthfilter = ["==", "mm", month + 1];
     }
     map.setFilter("data-driven-circles", mnthfilter);
     map.setFilter("heatmap", mnthfilter);
