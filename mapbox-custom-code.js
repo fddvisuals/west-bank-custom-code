@@ -114,7 +114,6 @@ let allfilter = [
     true,
     false,
   ],
-  ["match", ["get", "mm"], [globalvariablemonth], true, false],
 ];
 var globalvariablemonth;
 function filterBy(month) {
