@@ -289,12 +289,12 @@ map.on("load", () => {
       map.setFilter("data-driven-circles", monthfilter);
       map.setFilter("heatmap", monthfilter);
     };
-    filterBy(10);
-    document.getElementById("slider").addEventListener("input", (e) => {
-      const month = parseInt(e.target.value, 10);
-      filterBy(month);
-      globalThis.globalvariablemonth = month + 1;
-    });
-    renderListings([]);
   });
+  filterBy(10);
+  document.getElementById("slider").addEventListener("input", (e) => {
+    const month = parseInt(e.target.value, 10);
+    filterBy(month);
+    globalThis.globalvariablemonth = month + 1;
+  });
+  renderListings([]);
 });
