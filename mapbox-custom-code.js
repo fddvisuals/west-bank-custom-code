@@ -92,13 +92,14 @@ const months = [
   "August 2022",
   "September 2022",
   "October 2022",
-  "All (Mar to Oct 22)",
+  "November 2022)",
+  "All",
 ];
 
 var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
-  if (month == "10") {
+  if (month == "11") {
     map.setFilter("data-driven-circles", ["has", "Group"]);
   } else {
     map.setFilter("data-driven-circles", mnthfilter);
@@ -290,7 +291,7 @@ map.on("load", () => {
       map.setFilter("heatmap", monthfilter);
     };
   });
-  filterBy(10);
+  filterBy(11);
   document.getElementById("slider").addEventListener("input", (e) => {
     const month = parseInt(e.target.value, 10);
     filterBy(month);
