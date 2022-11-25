@@ -249,7 +249,7 @@ map.on("load", () => {
         true,
         false,
       ],
-      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+      ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     let redfilter = [
       "all",
@@ -261,6 +261,27 @@ map.on("load", () => {
         false,
       ],
       ["match", ["get", "mm"], [globalvariablemonth], true, false],
+    ];
+    let allfilter = [
+      "all",
+      [
+        "match",
+        ["get", "Group"],
+        [
+          "Militants",
+          "Militant",
+          "Clash",
+          "IDF, Shin Bet",
+          "IDF",
+          "Shin Bet",
+          "Israel Police, Shin Bet",
+          "Israel Police",
+          "IDF, Israel Police",
+        ],
+        true,
+        false,
+      ],
+      //["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     let monthfilter = [
       "all",
@@ -285,10 +306,10 @@ map.on("load", () => {
       red.className = "filter-button red";
       blue.className = "filter-button bluew";
       this.className = "filter-button all active";
-      map.setFilter("data-driven-circles", null);
-      map.setFilter("heatmap", null);
-      //map.setFilter("data-driven-circles", monthfilter);
-      //map.setFilter("heatmap", monthfilter);
+      map.setFilter("data-driven-circles", allfilter);
+      map.setFilter("heatmap", allfilter);
+      // map.setFilter("data-driven-circles", monthfilter);
+      // map.setFilter("heatmap", monthfilter);
     };
   });
   filterBy(11);
