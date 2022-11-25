@@ -310,7 +310,6 @@ map.on("load", () => {
       [
         "match",
         ["get", "Group"],
-        ["get", "Group"],
         ["Militants", "Militant", "Clash"],
         true,
         false,
