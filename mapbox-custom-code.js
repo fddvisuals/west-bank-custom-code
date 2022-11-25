@@ -170,10 +170,10 @@ map.on("load", () => {
           "</b><p>" +
           feature.properties.Notes +
           "</p>" +
-          '</p><p> <img width="200px" src="' +
-          feature.properties.GIF_URL +
-          '"</p>'
+          '"</p>' +
+          '<iframe src="https://drive.google.com/file/d/1VTC3K6YxjWWwoewT7GpYM-RjVlWy5JFY/preview" width="640" height="480" allow="autoplay"></iframe>'
       )
+
       .addTo(map);
   });
   map.on("mouseleave", "data-driven-circles", () => {
