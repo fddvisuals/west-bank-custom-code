@@ -322,6 +322,7 @@ map.on("load", () => {
       filterBy(month);
       globalThis.globalvariablemonth = month + 1;
     });
+    renderListings([]);
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
@@ -367,5 +368,4 @@ map.on("load", () => {
   //   filterBy(month);
   //   globalThis.globalvariablemonth = month + 1;
   // });
-  renderListings([]);
 });
