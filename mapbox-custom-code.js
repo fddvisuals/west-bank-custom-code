@@ -287,8 +287,8 @@ map.on("load", () => {
       this.className = "filter-button all active";
       map.setFilter("data-driven-circles", null);
       map.setFilter("heatmap", null);
-      map.setFilter("data-driven-circles", monthfilter);
-      map.setFilter("heatmap", monthfilter);
+      //map.setFilter("data-driven-circles", monthfilter);
+      //map.setFilter("heatmap", monthfilter);
     };
   });
   filterBy(11);
