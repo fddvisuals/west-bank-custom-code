@@ -383,6 +383,8 @@ map.on("load", () => {
         ],
         ["match", ["get", "mm"], [month + 1], true, false],
       ];
+      map.setFilter("data-driven-circles", mnthfilter);
+      map.setFilter("heatmap", mnthfilter);
     } else if (globalisclicked == 2) {
       let mnthfilter = [
         "all",
@@ -395,11 +397,14 @@ map.on("load", () => {
         ],
         ["match", ["get", "mm"], [month + 1], true, false],
       ];
+      map.setFilter("data-driven-circles", mnthfilter);
+      map.setFilter("heatmap", mnthfilter);
     } else {
       let mnthfilter = ["==", "mm", month + 1];
+      map.setFilter("data-driven-circles", mnthfilter);
+      map.setFilter("heatmap", mnthfilter);
     }
-    map.setFilter("data-driven-circles", mnthfilter);
-    map.setFilter("heatmap", mnthfilter);
+
     // console.log(globalisclicked);
     // console.log(globalvariablemonth);
     // if (month == "11") {
