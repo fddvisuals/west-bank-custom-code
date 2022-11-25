@@ -287,19 +287,56 @@ map.on("load", () => {
       ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
 
+    let blueall = [
+      "all",
+      [
+        "match",
+        ["get", "Group"],
+        [
+          "IDF, Shin Bet",
+          "IDF",
+          "Shin Bet",
+          "Israel Police, Shin Bet",
+          "Israel Police",
+          "IDF, Israel Police",
+        ],
+        true,
+        false,
+      ],
+      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+    ];
+    let redall = [
+      "all",
+      [
+        "match",
+        ["get", "Group"],
+        ["get", "Group"],
+        ["Militants", "Militant", "Clash"],
+        true,
+        false,
+      ],
+      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+    ];
+
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
       all.className = "filter-button all";
-      !map.setFilter("data-driven-circles", bluefilter);
-      !map.setFilter("heatmap", bluefilter);
+      if (globalvariablemonth != 11) {
+        !map.setFilter("data-driven-circles", bluefilter);
+        !map.setFilter("heatmap", bluefilter);
+      } else !map.setFilter("data-driven-circles", blueall);
+      !map.setFilter("heatmap", blueall);
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
       this.className = "filter-button red active";
       all.className = "filter-button all";
-      map.setFilter("data-driven-circles", redfilter);
-      map.setFilter("heatmap", redfilter);
+      if (globalvariablemonth != 11) {
+        !map.setFilter("data-driven-circles", redfilter);
+        !map.setFilter("heatmap", red);
+      } else !map.setFilter("data-driven-circles", redall);
+      !map.setFilter("heatmap", redall);
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
