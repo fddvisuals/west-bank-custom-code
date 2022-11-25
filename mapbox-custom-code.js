@@ -163,14 +163,7 @@ map.on("load", () => {
     popup
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
-        "<b>" +
-          feature.properties.formatted_date +
-          " | " +
-          feature.properties.Geocode_Name +
-          "</b><p>" +
-          feature.properties.Notes +
-          "</p>" +
-          '<iframe src="https://drive.google.com/file/d/1BtKxa6SCp5flUZl4XhajRkGHQblJpzWG/preview" width="640" height="480" allow="autoplay"></iframe>'
+        `<b>${feature.properties.formatted_date} | ${feature.properties.Geocode_Name}</b><p>${feature.properties.Notes}</p><iframe src="https://drive.google.com/file/d/1BtKxa6SCp5flUZl4XhajRkGHQblJpzWG/preview" width="150" height="150" allow="autoplay"></iframe>`
       )
 
       .addTo(map);
