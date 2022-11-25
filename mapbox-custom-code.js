@@ -33,6 +33,7 @@ function renderListings(features) {
         feature.properties.Group == "Militant" ||
         feature.properties.Group == "Militants"
       ) {
+        //revert this if it gets too.. get older version of this html
         itemLink.innerHTML = `<div class="title-wrapper-listing"><div class="list-blue-title"><img src="https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46abd14020aa9b1fe30_handcuffs-svgrepo-com.svg" loading="lazy" alt="" class="listing-icon"><p class="bold-listing-title-mil"> ${feature.properties.Type} | ${feature.properties.Group} <br> ${feature.properties.TerroristGroupTags}</p></div><div class="subtitle-wrapper"><div class="listing-subtitle-wrapper"><img src="https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46abd1402883db1fe31_date-icon.svg" loading="lazy" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.formatted_date}</p></div><div class="listing-subtitle-wrapper"><img src="https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46bbd14021eb9b1fe32_error-map-location-icon.svg" loading="lazy" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.Geocode_Name}</p></div></div></div><p class="listing-text">${feature.properties.Notes}</p>`;
       } else {
         itemLink.innerHTML = `<div class="title-wrapper-listing"><div class="list-blue-title"><img src="https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46abd14020aa9b1fe30_handcuffs-svgrepo-com.svg" loading="lazy" alt="" class="listing-icon"><p class="bold-listing-title-idf"> ${feature.properties.Type} | ${feature.properties.Group} <br> ${feature.properties.TerroristGroupTags}</p></div><div class="subtitle-wrapper"><div class="listing-subtitle-wrapper"><img src="https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46abd1402883db1fe31_date-icon.svg" loading="lazy" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.formatted_date}</p></div><div class="listing-subtitle-wrapper"><img src="https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46bbd14021eb9b1fe32_error-map-location-icon.svg" loading="lazy" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.Geocode_Name}</p></div></div></div><p class="listing-text">${feature.properties.Notes}</p>`;
@@ -199,6 +200,7 @@ map.on("load", () => {
     }
   });
   map.on("idle", () => {
+    //1 copied from above which .. putting it here renders it automatically when loaded and when inputs are switched. Remove if problematic
     const features = map.queryRenderedFeatures({
       layers: ["data-driven-circles"],
     });
@@ -211,7 +213,7 @@ map.on("load", () => {
       // Store the current features in sn `wbevents` variable to later use for filtering on `keyup`.
       wbevents = uniqueFeatures;
     }
-
+    // 1 ------ Until here..
     if (!map.getLayer("heatmap") || !map.getLayer("data-driven-circles")) {
       return;
     }
