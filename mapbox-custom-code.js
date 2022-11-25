@@ -170,7 +170,9 @@ map.on("load", () => {
           "</b><p>" +
           feature.properties.Notes +
           "</p>" +
-          '</p><p> <img width="200px" src="https://drive.google.com/file/d/16wylaZmhKuZL5mCu2PRXXnxvh-KBgrnK/view?usp=sharing"</p>'
+          '</p><p> <img width="200px" src="' +
+          feature.properties.GIF_URL +
+          '"</p>'
       )
       .addTo(map);
   });
