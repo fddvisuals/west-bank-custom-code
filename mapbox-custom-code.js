@@ -281,7 +281,7 @@ map.on("load", () => {
         true,
         false,
       ],
-      //["match", ["get", "mm"], [globalvariablemonth], true, false],
+      ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     let monthfilter = [
       "all",
