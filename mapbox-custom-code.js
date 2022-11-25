@@ -306,8 +306,6 @@ map.on("load", () => {
       ],
       // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
-    var isclicked = 3;
-    globalThis.globalisclicked = isclicked;
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
@@ -319,8 +317,7 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", blueall);
         map.setFilter("heatmap", blueall);
       }
-      isclicked = 1;
-      globalThis.globalisclicked = isclicked;
+      globalThis.globalisclicked = 1;
       console.log(globalisclicked);
     };
     red.onclick = function (e) {
@@ -335,8 +332,7 @@ map.on("load", () => {
         map.setFilter("heatmap", redall);
       }
       isclicked = 2;
-      globalThis.globalisclicked = isclicked;
-      console.log(globalisclicked);
+      globalThis.globalisclicked = 2;
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
@@ -351,9 +347,7 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", null);
         map.setFilter("heatmap", null);
       }
-      isclicked = 3;
-      globalThis.globalisclicked = isclicked;
-      console.log(globalisclicked);
+      globalThis.globalisclicked = 3;
     };
   });
   let bluefilter1 = [
