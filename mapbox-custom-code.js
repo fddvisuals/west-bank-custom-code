@@ -95,12 +95,32 @@ const months = [
   "November 2022",
   "All",
 ];
-
+let allfilter = [
+  "all",
+  [
+    "match",
+    ["get", "Group"],
+    [
+      "Militants",
+      "Militant",
+      "Clash",
+      "IDF, Shin Bet",
+      "IDF",
+      "Shin Bet",
+      "Israel Police, Shin Bet",
+      "Israel Police",
+      "IDF, Israel Police",
+    ],
+    true,
+    false,
+  ],
+  ["match", ["get", "mm"], [globalvariablemonth], true, false],
+];
 var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
   if (month == "11") {
-    map.setFilter("data-driven-circles", ["has", "wb-id"]);
+    map.setFilter("data-driven-circles", allfilter);
   } else {
     map.setFilter("data-driven-circles", mnthfilter);
     map.setFilter("heatmap", mnthfilter);
@@ -262,27 +282,7 @@ map.on("load", () => {
       ],
       ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
-    let allfilter = [
-      "all",
-      [
-        "match",
-        ["get", "Group"],
-        [
-          "Militants",
-          "Militant",
-          "Clash",
-          "IDF, Shin Bet",
-          "IDF",
-          "Shin Bet",
-          "Israel Police, Shin Bet",
-          "Israel Police",
-          "IDF, Israel Police",
-        ],
-        true,
-        false,
-      ],
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
+
     let monthfilter = [
       "all",
       ["match", ["get", "mm"], [globalvariablemonth], true, false],
@@ -308,8 +308,8 @@ map.on("load", () => {
       this.className = "filter-button all active";
       map.setFilter("data-driven-circles", allfilter);
       map.setFilter("heatmap", allfilter);
-      // map.setFilter("data-driven-circles", monthfilter);
-      // map.setFilter("heatmap", monthfilter);
+      map.setFilter("data-driven-circles", monthfilter);
+      map.setFilter("heatmap", monthfilter);
     };
   });
   filterBy(11);
