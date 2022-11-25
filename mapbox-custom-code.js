@@ -403,8 +403,9 @@ map.on("load", () => {
         // map.setFilter("data-driven-circles", mnthfilter);
         // map.setFilter("heatmap", mnthfilter);
       } else {
-        map.setFilter("data-driven-circles", mnthfilter);
-        map.setFilter("heatmap", mnthfilter);
+        console.log("1");
+        // map.setFilter("data-driven-circles", mnthfilter);
+        // map.setFilter("heatmap", mnthfilter);
       }
     }
     // Set the label to the month
