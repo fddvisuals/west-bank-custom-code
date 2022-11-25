@@ -323,11 +323,11 @@ map.on("load", () => {
       this.className = "filter-button bluew active";
       all.className = "filter-button all";
       if (monthfilter != 11) {
-        !map.setFilter("data-driven-circles", bluefilter);
-        !map.setFilter("heatmap", bluefilter);
+        map.setFilter("data-driven-circles", bluefilter);
+        map.setFilter("heatmap", bluefilter);
       } else {
-        !map.setFilter("data-driven-circles", blueall);
-        !map.setFilter("heatmap", blueall);
+        map.setFilter("data-driven-circles", blueall);
+        map.setFilter("heatmap", blueall);
       }
     };
     red.onclick = function (e) {
@@ -335,11 +335,11 @@ map.on("load", () => {
       this.className = "filter-button red active";
       all.className = "filter-button all";
       if (monthfilter != 11) {
-        !map.setFilter("data-driven-circles", redfilter);
-        !map.setFilter("heatmap", red);
+        map.setFilter("data-driven-circles", redfilter);
+        map.setFilter("heatmap", redfilter);
       } else {
-        !map.setFilter("data-driven-circles", redall);
-        !map.setFilter("heatmap", redall);
+        map.setFilter("data-driven-circles", redall);
+        map.setFilter("heatmap", redall);
       }
     };
     all.onclick = function (e) {
