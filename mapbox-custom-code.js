@@ -116,7 +116,7 @@ let allfilter = [
   ],
 ];
 var globalvariablemonth;
-var globalisclicked;
+var globalisclicked = 3;
 
 function normalize(string) {
   return string.trim().toLowerCase();
