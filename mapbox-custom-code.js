@@ -136,7 +136,7 @@ map.on("load", () => {
       layers: ["data-driven-circles"],
     });
     if (features) {
-      const uniqueFeatures = getUniqueFeatures(features, "wb-id");
+      const uniqueFeatures = getUniqueFeatures(features, "");
       // Populate features for the listing overlay.
       renderListings(uniqueFeatures);
       // Clear the input container
