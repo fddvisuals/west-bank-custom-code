@@ -100,7 +100,7 @@ var globalvariablemonth;
 function filterBy(month) {
   const mnthfilter = ["==", "mm", month + 1];
   if (month == "11") {
-    map.setFilter("data-driven-circles", ["has", "Group"]);
+    map.setFilter("data-driven-circles", ["has", "wb-id"]);
   } else {
     map.setFilter("data-driven-circles", mnthfilter);
     map.setFilter("heatmap", mnthfilter);
@@ -260,7 +260,7 @@ map.on("load", () => {
         true,
         false,
       ],
-      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+      ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     let monthfilter = [
       "all",
