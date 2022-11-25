@@ -8,7 +8,7 @@ const map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/pavakpatel/cl9goeb54004914o0f9zfa9ah",
   center: [35.1708741, 31.9485955],
-  minZoom: 6,
+  minZoom: 6.5,
   //maxBounds: bounds
 });
 let wbevents = [];
@@ -33,16 +33,16 @@ function renderListings(features) {
         feature.properties.Group == "Militant" ||
         feature.properties.Group == "Militants"
       ) {
-        itemLink.innerHTML = `<b> <p class ="bold-listing-title-mil">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.Date} &nbsp | • &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
+        itemLink.innerHTML = `<b> <p class ="bold-listing-title-mil">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.formatted_date} &nbsp | • &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
       } else {
-        itemLink.innerHTML = `<b> <p class ="bold-listing-title-idf">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.Date} &nbsp | • &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
+        itemLink.innerHTML = `<b> <p class ="bold-listing-title-idf">${feature.properties.Group} &nbsp | &nbsp ${feature.properties.formatted_date} &nbsp | • &nbsp   ${feature.properties.Type} </p> </b> <p class="white"> ${feature.properties.Notes} </p>`;
       }
       itemLink.addEventListener("mouseover", () => {
         popup
           .setLngLat(feature.geometry.coordinates)
           .setHTML(
             "<b>" +
-              feature.properties.Date +
+              feature.properties.formatted_date +
               " | " +
               feature.properties.Geocode_Name +
               "</b><p>" +
@@ -136,7 +136,7 @@ map.on("load", () => {
       layers: ["data-driven-circles"],
     });
     if (features) {
-      const uniqueFeatures = getUniqueFeatures(features, "Group");
+      const uniqueFeatures = getUniqueFeatures(features, "wb-id");
       // Populate features for the listing overlay.
       renderListings(uniqueFeatures);
       // Clear the input container
@@ -154,7 +154,7 @@ map.on("load", () => {
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
         "<b>" +
-          feature.properties.Date +
+          feature.properties.formatted_date +
           " | " +
           feature.properties.Geocode_Name +
           "</b><p>" +
