@@ -93,7 +93,7 @@ const months = [
   "September 2022",
   "October 2022",
   "November 2022",
-  "All",
+  "All | March to November",
 ];
 let allfilter = [
   "all",
@@ -165,7 +165,6 @@ map.on("load", () => {
       .setHTML(
         `<b>${feature.properties.formatted_date} | ${feature.properties.Geocode_Name}</b><p>${feature.properties.Notes}</p><iframe src="https://drive.google.com/file/d/1BtKxa6SCp5flUZl4XhajRkGHQblJpzWG/preview" width="150" height="150" allow="autoplay"></iframe>`
       )
-
       .addTo(map);
   });
   map.on("mouseleave", "data-driven-circles", () => {
