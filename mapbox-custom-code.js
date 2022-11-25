@@ -331,7 +331,6 @@ map.on("load", () => {
         map.setFilter("data-driven-circles", redall);
         map.setFilter("heatmap", redall);
       }
-      isclicked = 2;
       globalThis.globalisclicked = 2;
     };
     all.onclick = function (e) {
