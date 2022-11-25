@@ -211,7 +211,7 @@ map.on("load", () => {
       // Store the current features in sn `wbevents` variable to later use for filtering on `keyup`.
       wbevents = uniqueFeatures;
     }
-  });
+
     if (!map.getLayer("heatmap") || !map.getLayer("data-driven-circles")) {
       return;
     }
