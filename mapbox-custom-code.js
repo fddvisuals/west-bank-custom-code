@@ -409,6 +409,7 @@ map.on("load", () => {
     document.getElementById("month").textContent = months[month];
     globalThis.globalvariablemonth = month + 1;
   }
+  console.log(globalisclicked);
   filterBy(11);
   document.getElementById("slider").addEventListener("input", (e) => {
     const month = parseInt(e.target.value, 10);
