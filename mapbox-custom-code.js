@@ -42,15 +42,7 @@ function renderListings(features) {
         popup
           .setLngLat(feature.geometry.coordinates)
           .setHTML(
-            "<b>" +
-              feature.properties.formatted_date +
-              " | " +
-              feature.properties.Geocode_Name +
-              "</b><p>" +
-              feature.properties.Notes +
-              "</p>"
-            // +
-            //     '</p><p> <img width="200px" src="https://github.com/fddvisuals/west-bank-images/blob/main/ezgif-5-fedaa64c27.gif?raw=true"</p>'
+            `<div class="div-block-18"><div class="div-block-19"><h4 class="heading-7">${feature.properties.Geocode_Name}</h4><h4 class="heading-7">${feature.properties.formatted_date}</h4></div><p>${feature.properties.Notes}</p></div>``<b> | </b><p></p>`
           )
           .addTo(map);
       });
