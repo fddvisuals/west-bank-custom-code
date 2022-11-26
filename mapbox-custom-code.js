@@ -41,8 +41,8 @@ function renderListings(features) {
       // https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46abd14020aa9b1fe30_handcuffs-svgrepo-com.svg
       itemLink.addEventListener("mouseover", () => {
         if (
-          feature.properties.Group == Militant ||
-          feature.properties.Group == Militants
+          feature.properties.Group == "Militant" ||
+          feature.properties.Group == "Militants"
         ) {
           popup
             .setLngLat(feature.geometry.coordinates)
