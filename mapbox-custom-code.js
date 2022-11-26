@@ -40,23 +40,27 @@ function renderListings(features) {
       }
       // https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46abd14020aa9b1fe30_handcuffs-svgrepo-com.svg
       itemLink.addEventListener("mouseover", () => {
-        if (
-          feature.properties.Group == "Militant" ||
-          feature.properties.Group == "Militants"
-        ) {
-          popup
-            .setLngLat(feature.geometry.coordinates)
-            .setHTML(
-              `<div class="div-block-18"><div class="div-block-19 red"><h4 class="heading-7-keep">${feature.properties.Type}</h4></div><p class="paragraph-4">${feature.properties.Notes}</p></div>`
-            )
-            .addTo(map);
-        } else {
-          popup
-            .setLngLat(feature.geometry.coordinates)
-            .setHTML(
-              `<div class="div-block-18"><div class="div-block-19 blue"><h4 class="heading-7-keep">${feature.properties.Type}</h4></div><p class="paragraph-4">${feature.properties.Notes}</p></div>`
-            )
-            .addTo(map);
+        popupGenerator();
+
+        function popupGenerator() {
+          if (
+            feature.properties.Group == "Militant" ||
+            feature.properties.Group == "Militants"
+          ) {
+            popup
+              .setLngLat(feature.geometry.coordinates)
+              .setHTML(
+                `<div class="popup-wrapper"><div class="pop-title-wrapper red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
+              )
+              .addTo(map);
+          } else {
+            popup
+              .setLngLat(feature.geometry.coordinates)
+              .setHTML(
+                `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
+              )
+              .addTo(map);
+          }
         }
       });
       itemLink.onclick = function () {
@@ -166,24 +170,7 @@ map.on("load", () => {
     map.getCanvas().style.cursor = "pointer";
     // Populate the popup and set its coordinates based on the feature.
     const feature = e.features[0];
-    if (
-      feature.properties.Group == "Militant" ||
-      feature.properties.Group == "Militants"
-    ) {
-      popup
-        .setLngLat(feature.geometry.coordinates)
-        .setHTML(
-          `<div class="popup-wrapper"><div class="pop-title-wrapper red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
-        )
-        .addTo(map);
-    } else {
-      popup
-        .setLngLat(feature.geometry.coordinates)
-        .setHTML(
-          `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
-        )
-        .addTo(map);
-    }
+    popupGenerator();
   });
   map.on("mouseleave", "data-driven-circles", () => {
     map.getCanvas().style.cursor = "";
