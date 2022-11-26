@@ -166,13 +166,24 @@ map.on("load", () => {
     map.getCanvas().style.cursor = "pointer";
     // Populate the popup and set its coordinates based on the feature.
     const feature = e.features[0];
-    popup
-      .setLngLat(feature.geometry.coordinates)
-      .setHTML(
-        `<b>${feature.properties.formatted_date} | ${feature.properties.Geocode_Name}</b><p>${feature.properties.Notes}</p>`
-        // <iframe src="https://drive.google.com/file/d/1BtKxa6SCp5flUZl4XhajRkGHQblJpzWG/preview" width="150" height="150" allow="autoplay"></iframe>
-      )
-      .addTo(map);
+    if (
+      feature.properties.Group == "Militant" ||
+      feature.properties.Group == "Militants"
+    ) {
+      popup
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+          `<div class="div-block-18"><div class="div-block-19 red"><h4 class="heading-7-keep">${feature.properties.Type}</h4></div><p class="paragraph-4">${feature.properties.Notes}</p></div>`
+        )
+        .addTo(map);
+    } else {
+      popup
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+          `<div class="div-block-18"><div class="div-block-19 blue"><h4 class="heading-7-keep">${feature.properties.Type}</h4></div><p class="paragraph-4">${feature.properties.Notes}</p></div>`
+        )
+        .addTo(map);
+    }
   });
   map.on("mouseleave", "data-driven-circles", () => {
     map.getCanvas().style.cursor = "";
