@@ -173,14 +173,14 @@ map.on("load", () => {
       popup
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
-          `<div class="div-block-18"><div class="div-block-19 red"><h4 class="heading-7-keep">${feature.properties.Type}</h4></div><p class="paragraph-4">${feature.properties.Notes}</p></div>`
+          `<div class="popup-wrapper"><div class="pop-title-wrapper red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
         )
         .addTo(map);
     } else {
       popup
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
-          `<div class="div-block-18"><div class="div-block-19 blue"><h4 class="heading-7-keep">${feature.properties.Type}</h4></div><p class="paragraph-4">${feature.properties.Notes}</p></div>`
+          `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
         )
         .addTo(map);
     }
