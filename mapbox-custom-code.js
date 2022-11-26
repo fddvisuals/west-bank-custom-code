@@ -40,28 +40,7 @@ function renderListings(features) {
       }
       // https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46abd14020aa9b1fe30_handcuffs-svgrepo-com.svg
       itemLink.addEventListener("mouseover", () => {
-        popupGenerator();
-
-        function popupGenerator() {
-          if (
-            feature.properties.Group == "Militant" ||
-            feature.properties.Group == "Militants"
-          ) {
-            popup
-              .setLngLat(feature.geometry.coordinates)
-              .setHTML(
-                `<div class="popup-wrapper"><div class="pop-title-wrapper red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
-              )
-              .addTo(map);
-          } else {
-            popup
-              .setLngLat(feature.geometry.coordinates)
-              .setHTML(
-                `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
-              )
-              .addTo(map);
-          }
-        }
+        popupGenerator(feature);
       });
       itemLink.onclick = function () {
         // setActive(listing);
@@ -128,6 +107,27 @@ let allfilter = [
 var globalvariablemonth;
 var globalisclicked = 3;
 
+function popupGenerator(feature) {
+  if (
+    feature.properties.Group == "Militant" ||
+    feature.properties.Group == "Militants"
+  ) {
+    popup
+      .setLngLat(feature.geometry.coordinates)
+      .setHTML(
+        `<div class="popup-wrapper"><div class="pop-title-wrapper red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
+      )
+      .addTo(map);
+  } else {
+    popup
+      .setLngLat(feature.geometry.coordinates)
+      .setHTML(
+        `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
+      )
+      .addTo(map);
+  }
+}
+
 function normalize(string) {
   return string.trim().toLowerCase();
 }
@@ -170,7 +170,7 @@ map.on("load", () => {
     map.getCanvas().style.cursor = "pointer";
     // Populate the popup and set its coordinates based on the feature.
     const feature = e.features[0];
-    popupGenerator();
+    popupGenerator(feature);
   });
   map.on("mouseleave", "data-driven-circles", () => {
     map.getCanvas().style.cursor = "";
