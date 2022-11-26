@@ -42,7 +42,7 @@ function renderListings(features) {
         popup
           .setLngLat(feature.geometry.coordinates)
           .setHTML(
-            `<div class="div-block-18"><div class="div-block-19"><h4 class="heading-7">${feature.properties.Geocode_Name}</h4><h4 class="heading-7">${feature.properties.formatted_date}</h4></div><p>${feature.properties.Notes}</p></div>`
+            `<div class="div-block-18"><div class="div-block-19"><h4 class="heading-7-keep">${feature.properties.Type}</h4><h4 class="heading-7">${feature.properties.Geocode_Name}</h4></div><p class="paragraph-4">${feature.properties.Notes}</p></div>`
           )
           .addTo(map);
       });
