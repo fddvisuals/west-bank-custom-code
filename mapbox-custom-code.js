@@ -135,20 +135,20 @@ map.on("load", () => {
     });
   });
   map.on("movestart", () => {});
-  // map.on("moveend", () => {
-  //   const features = map.queryRenderedFeatures({
-  //     layers: ["data-driven-circles"],
-  //   });
-  //   if (features) {
-  //     const uniqueFeatures = getUniqueFeatures(features, "wb-id");
-  //     // Populate features for the listing overlay.
-  //     renderListings(uniqueFeatures);
-  //     // Clear the input container
-  //     filterEl.value = "";
-  //     // Store the current features in sn `wbevents` variable to later use for filtering on `keyup`.
-  //     wbevents = uniqueFeatures;
-  //   }
-  // });
+  map.on("moveend", () => {
+    const features = map.queryRenderedFeatures({
+      layers: ["data-driven-circles"],
+    });
+    if (features) {
+      const uniqueFeatures = getUniqueFeatures(features, "wb-id");
+      // Populate features for the listing overlay.
+      renderListings(uniqueFeatures);
+      // Clear the input container
+      filterEl.value = "";
+      // Store the current features in sn `wbevents` variable to later use for filtering on `keyup`.
+      wbevents = uniqueFeatures;
+    }
+  });
   map.on("mousemove", "data-driven-circles", (e) => {
     // Change the cursor style as a UI indicator.
     map.getCanvas().style.cursor = "pointer";
