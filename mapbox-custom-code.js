@@ -34,9 +34,9 @@ function renderListings(features) {
         feature.properties.Group == "Militants"
       ) {
         //revert this if it gets too.. get older version of this html
-        itemLink.innerHTML = `<div class="title-wrapper-listing"><div class="list-blue-title"><img src="${feature.properties.type_icon_url}" loading="eager" alt="" class="listing-icon red"><p class="bold-listing-title-mil"> ${feature.properties.Type} | ${feature.properties.Group} <br><span class="group-name-span">${feature.properties.TerroristGroupTags}</span></p></div><div class="subtitle-wrapper"><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac6b1ef242239cb16_Vector-1.svg" loading="eager" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.formatted_date}</p></div><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac50a51f40b798700_Vector.svg" loading="eager" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.Geocode_Name}</p></div></div></div><p class="listing-text">${feature.properties.Notes}</p>`;
+        itemLink.innerHTML = `<div class="title-wrapper-listing"><div class="list-blue-title"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d0540b97f64a21ba378f_Vector-2.svg" loading="eager" alt="" class="listing-icon"><p class="bold-listing-title-mil"> ${feature.properties.Type} | ${feature.properties.Group} <br><span class="group-name-span">${feature.properties.TerroristGroupTags}</span></p></div><div class="subtitle-wrapper"><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac6b1ef242239cb16_Vector-1.svg" loading="eager" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.formatted_date}</p></div><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac50a51f40b798700_Vector.svg" loading="eager" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.Geocode_Name}</p></div></div></div><p class="listing-text">${feature.properties.Notes}</p>`;
       } else {
-        itemLink.innerHTML = `<div class="title-wrapper-listing"><div class="list-blue-title"><img src="${feature.properties.type_icon_url}" loading="eager" alt="" class="listing-icon blue"><p class="bold-listing-title-idf"> ${feature.properties.Type} | ${feature.properties.Group} <br><span class="group-name-span">${feature.properties.TerroristGroupTags}</span></p></div><div class="subtitle-wrapper"><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac6b1ef242239cb16_Vector-1.svg" loading="eager" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.formatted_date}</p></div><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac50a51f40b798700_Vector.svg" loading="eager" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.Geocode_Name}</p></div></div></div><p class="listing-text">${feature.properties.Notes}</p>`;
+        itemLink.innerHTML = `<div class="title-wrapper-listing"><div class="list-blue-title"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d0540b97f64a21ba378f_Vector-2.svg" loading="eager" alt="" class="listing-icon"><p class="bold-listing-title-idf"> ${feature.properties.Type} | ${feature.properties.Group} <br><span class="group-name-span">${feature.properties.TerroristGroupTags}</span></p></div><div class="subtitle-wrapper"><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac6b1ef242239cb16_Vector-1.svg" loading="eager" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.formatted_date}</p></div><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac50a51f40b798700_Vector.svg" loading="eager" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.Geocode_Name}</p></div></div></div><p class="listing-text">${feature.properties.Notes}</p>`;
       }
       // https://assets.website-files.com/6352289bab9b05d2a93f26f6/6380e46abd14020aa9b1fe30_handcuffs-svgrepo-com.svg
       itemLink.addEventListener("mouseover", () => {
@@ -116,14 +116,14 @@ function popupGenerator(feature) {
     popup
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
-        `<div class="popup-wrapper"><div class="pop-title-wrapper red"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
+        `<div class="popup-wrapper"><div class="pop-title-wrapper red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
       )
       .addTo(map);
   } else {
     popup
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
-        `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
+        `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
       )
       .addTo(map);
   }
