@@ -49,6 +49,7 @@ function renderListings(features) {
         // its associated locale and open its popup.
         map.flyTo({
           center: feature.geometry.coordinates,
+          essential: true,
           zoom: 16,
         });
         //locale.openPopup();
@@ -254,7 +255,6 @@ map.on("load", () => {
     var blue = document.getElementById("idf-button");
     var red = document.getElementById("mil-button");
     var all = document.getElementById("show-all-button");
-    var reset = document.getElementById("reset-view");
 
     let bluefilter = [
       "all",
@@ -362,12 +362,6 @@ map.on("load", () => {
       }
       globalThis.globalisclicked = 3;
     };
-    reset.onclick = () => {
-      map.flyTo({
-        center: [35.1708741, 31.9485955],
-        zoom: 6.5,
-      });
-    };
   });
   let bluefilter1 = [];
   let redfilter1 = [
@@ -442,4 +436,13 @@ map.on("load", () => {
     globalThis.globalvariablemonth = month + 1;
   });
   renderListings([]);
+
+  document.getElementById("reset-view").addEventListener("click", () => {
+    // Fly to a random location
+    map.flyTo({
+      center: [35.1708741, 31.9485955],
+      zoom: 6.5,
+      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+    });
+  });
 });
