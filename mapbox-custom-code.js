@@ -13,7 +13,7 @@ const map = new mapboxgl.Map({
 });
 let wbevents = [];
 const popup = new mapboxgl.Popup({
-  closeButton: false,
+  closeButton: true,
 });
 
 const filterGroup = document.getElementById("filter-group");
@@ -181,7 +181,7 @@ map.on("load", () => {
   });
   map.on("mouseleave", "data-driven-circles", () => {
     map.getCanvas().style.cursor = "";
-    popup.remove();
+    // popup.remove();
   });
   filterEl.addEventListener("keyup", (e) => {
     const value = normalize(e.target.value);
