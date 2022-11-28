@@ -362,7 +362,7 @@ map.on("load", () => {
       }
       globalThis.globalisclicked = 3;
     };
-    reset.onclick = function (e) {
+    reset.onclick = () => {
       map.flyTo({
         center: [35.1708741, 31.9485955],
         zoom: 6.5,
