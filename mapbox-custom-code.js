@@ -251,9 +251,9 @@ map.on("load", () => {
       const layers = document.getElementById("menu");
       layers.appendChild(link);
     }
-    var blue = document.getElementById("idf-button");
-    var red = document.getElementById("mil-button");
-    var all = document.getElementById("show-all-button");
+    var blue = document.getElementById("idf-button-2");
+    var red = document.getElementById("mil-button-2");
+    var all = document.getElementById("show-all-button-2");
 
     let bluefilter = [
       "all",
@@ -331,7 +331,6 @@ map.on("load", () => {
         map.setFilter("heatmap", blueall);
       }
       globalThis.globalisclicked = 1;
-      console.log(globalisclicked);
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
@@ -376,7 +375,6 @@ map.on("load", () => {
   ];
   //filterby function
   const mnthfilter = [];
-
   function filterBy(month) {
     if (month == "11") {
       map.setFilter("data-driven-circles", allfilter);
