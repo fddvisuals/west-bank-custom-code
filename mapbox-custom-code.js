@@ -116,14 +116,14 @@ function popupGenerator(feature) {
     popup
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
-        `<div class="popup-wrapper"><div class="pop-title-wrapper red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
+        `<div class="popup-wrapper"><div class="pop-title-wrapper red"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
       )
       .addTo(map);
   } else {
     popup
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
-        `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
+        `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p></div>`
       )
       .addTo(map);
   }
