@@ -434,6 +434,21 @@ map.on("load", () => {
   });
   renderListings([]);
 
+  document.getElementById("idf-button-2").addEventListener("click", () => {
+    // Fly to a random location
+    red.className = "filter-button red";
+    this.className = "filter-button bluew active";
+    all.className = "filter-button all";
+    if (globalvariablemonth != 12) {
+      map.setFilter("data-driven-circles", bluefilter);
+      map.setFilter("heatmap", bluefilter);
+    } else {
+      map.setFilter("data-driven-circles", blueall);
+      map.setFilter("heatmap", blueall);
+    }
+    globalThis.globalisclicked = 1;
+  });
+
   document.getElementById("reset-view").addEventListener("click", () => {
     // Fly to a random location
     map.flyTo({
