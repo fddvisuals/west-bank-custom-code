@@ -49,7 +49,6 @@ function renderListings(features) {
         // its associated locale and open its popup.
         map.flyTo({
           center: feature.geometry.coordinates,
-          essential: true,
           zoom: 16,
         });
         //locale.openPopup();
@@ -436,13 +435,4 @@ map.on("load", () => {
     globalThis.globalvariablemonth = month + 1;
   });
   renderListings([]);
-
-  document.getElementById("reset-view").addEventListener("click", () => {
-    // Fly to a random location
-    map.flyTo({
-      center: [35.1708741, 31.9485955],
-      zoom: 6.5,
-      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-    });
-  });
 });
