@@ -251,9 +251,9 @@ map.on("load", () => {
       const layers = document.getElementById("menu");
       layers.appendChild(link);
     }
-    var blue = document.getElementById("idf-button-2");
-    var red = document.getElementById("mil-button-2");
-    var all = document.getElementById("show-all-button-2");
+    var blue = document.getElementById("idf-button");
+    var red = document.getElementById("mil-button");
+    var all = document.getElementById("show-all-button");
 
     let bluefilter = [
       "all",
