@@ -254,6 +254,7 @@ map.on("load", () => {
     var blue = document.getElementById("idf-button");
     var red = document.getElementById("mil-button");
     var all = document.getElementById("show-all-button");
+    var reset = document.getElementById("reset-view");
 
     let bluefilter = [
       "all",
@@ -360,6 +361,12 @@ map.on("load", () => {
         map.setFilter("heatmap", null);
       }
       globalThis.globalisclicked = 3;
+    };
+    reset.onclick = function (e) {
+      map.flyTo({
+        center: [35.1708741, 31.9485955],
+        zoom: 6.5,
+      });
     };
   });
   let bluefilter1 = [];
