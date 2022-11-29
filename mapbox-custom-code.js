@@ -198,156 +198,125 @@ map.on("load", () => {
     }
   });
   map.on("idle", () => {
-    //1 copied from above which .. putting it here renders it automatically when loaded and when inputs are switched. Remove if problematic
     // renderList();
-    // 1 ------ Until here..
     if (!map.getLayer("heatmap") || !map.getLayer("data-driven-circles")) {
       return;
     }
     // Enumerate ids of the layers.
-    const toggleableLayerIds = ["heatmap", "data-driven-circles"];
-    // Set up the corresponding toggle button for each layer.
-    for (const id of toggleableLayerIds) {
-      // Skip layers that already have a button set up.
-      if (document.getElementById(id)) {
-        continue;
-      }
-      // Create a link.
-      const link = document.createElement("a");
-      link.id = id;
-      link.href = "#";
-      link.textContent = id;
-      link.className = "active";
-      // Show or hide layer when the toggle is clicked.
-      link.onclick = function (e) {
-        const clickedLayer = this.textContent;
-        e.preventDefault();
-        e.stopPropagation();
-        const visibility = map.getLayoutProperty(clickedLayer, "visibility");
-        if (visibility === "visible") {
-          map.setLayoutProperty(clickedLayer, "visibility", "none");
-          this.className = "";
-        } else {
-          this.className = "active";
-          map.setLayoutProperty(clickedLayer, "visibility", "visible");
-        }
-      };
-      const layers = document.getElementById("menu");
-      layers.appendChild(link);
-    }
-    var blue = document.getElementById("idf-button");
-    var red = document.getElementById("mil-button");
-    var all = document.getElementById("show-all-button");
-
-    let bluefilter = [
-      "all",
-      [
-        "match",
-        ["get", "Group"],
-        [
-          "IDF, Shin Bet",
-          "IDF",
-          "Shin Bet",
-          "Israel Police, Shin Bet",
-          "Israel Police",
-          "IDF, Israel Police",
-        ],
-        true,
-        false,
-      ],
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
-    let redfilter = [
-      "all",
-      [
-        "match",
-        ["get", "Group"],
-        ["Militants", "Militant", "Clash"],
-        true,
-        false,
-      ],
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
-
-    let monthfilter = [
-      "all",
-      ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
-
-    let blueall = [
-      "all",
-      [
-        "match",
-        ["get", "Group"],
-        [
-          "IDF, Shin Bet",
-          "IDF",
-          "Shin Bet",
-          "Israel Police, Shin Bet",
-          "Israel Police",
-          "IDF, Israel Police",
-        ],
-        true,
-        false,
-      ],
-      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
-    let redall = [
-      "all",
-      [
-        "match",
-        ["get", "Group"],
-        ["Militants", "Militant", "Clash"],
-        true,
-        false,
-      ],
-      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
-    ];
-    blue.onclick = function (e) {
-      red.className = "filter-button red";
-      this.className = "filter-button bluew active";
-      all.className = "filter-button all";
-      if (globalvariablemonth != 12) {
-        map.setFilter("data-driven-circles", bluefilter);
-        map.setFilter("heatmap", bluefilter);
-      } else {
-        map.setFilter("data-driven-circles", blueall);
-        map.setFilter("heatmap", blueall);
-      }
-      globalThis.globalisclicked = 1;
-      popup.remove();
-    };
-    red.onclick = function (e) {
-      blue.className = "filter-button bluew";
-      this.className = "filter-button red active";
-      all.className = "filter-button all";
-      if (globalvariablemonth != 12) {
-        map.setFilter("data-driven-circles", redfilter);
-        map.setFilter("heatmap", redfilter);
-      } else {
-        map.setFilter("data-driven-circles", redall);
-        map.setFilter("heatmap", redall);
-      }
-      globalThis.globalisclicked = 2;
-      popup.remove();
-    };
-    all.onclick = function (e) {
-      red.className = "filter-button red";
-      blue.className = "filter-button bluew";
-      this.className = "filter-button all active";
-      if (globalvariablemonth != 12) {
-        map.setFilter("data-driven-circles", null);
-        map.setFilter("heatmap", null);
-        map.setFilter("data-driven-circles", monthfilter);
-        map.setFilter("heatmap", monthfilter);
-      } else {
-        map.setFilter("data-driven-circles", null);
-        map.setFilter("heatmap", null);
-      }
-      globalThis.globalisclicked = 3;
-      popup.remove();
-    };
   });
+  var blue = document.getElementById("idf-button");
+  var red = document.getElementById("mil-button");
+  var all = document.getElementById("show-all-button");
+
+  let bluefilter = [
+    "all",
+    [
+      "match",
+      ["get", "Group"],
+      [
+        "IDF, Shin Bet",
+        "IDF",
+        "Shin Bet",
+        "Israel Police, Shin Bet",
+        "Israel Police",
+        "IDF, Israel Police",
+      ],
+      true,
+      false,
+    ],
+    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
+  let redfilter = [
+    "all",
+    [
+      "match",
+      ["get", "Group"],
+      ["Militants", "Militant", "Clash"],
+      true,
+      false,
+    ],
+    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
+
+  let monthfilter = [
+    "all",
+    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
+
+  let blueall = [
+    "all",
+    [
+      "match",
+      ["get", "Group"],
+      [
+        "IDF, Shin Bet",
+        "IDF",
+        "Shin Bet",
+        "Israel Police, Shin Bet",
+        "Israel Police",
+        "IDF, Israel Police",
+      ],
+      true,
+      false,
+    ],
+    // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
+  let redall = [
+    "all",
+    [
+      "match",
+      ["get", "Group"],
+      ["Militants", "Militant", "Clash"],
+      true,
+      false,
+    ],
+    // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
+  blue.onclick = function (e) {
+    red.className = "filter-button red";
+    this.className = "filter-button bluew active";
+    all.className = "filter-button all";
+    if (globalvariablemonth != 12) {
+      map.setFilter("data-driven-circles", bluefilter);
+      map.setFilter("heatmap", bluefilter);
+    } else {
+      map.setFilter("data-driven-circles", blueall);
+      map.setFilter("heatmap", blueall);
+    }
+    globalThis.globalisclicked = 1;
+    popup.remove();
+  };
+  red.onclick = function (e) {
+    blue.className = "filter-button bluew";
+    this.className = "filter-button red active";
+    all.className = "filter-button all";
+    if (globalvariablemonth != 12) {
+      map.setFilter("data-driven-circles", redfilter);
+      map.setFilter("heatmap", redfilter);
+    } else {
+      map.setFilter("data-driven-circles", redall);
+      map.setFilter("heatmap", redall);
+    }
+    globalThis.globalisclicked = 2;
+    popup.remove();
+  };
+  all.onclick = function (e) {
+    red.className = "filter-button red";
+    blue.className = "filter-button bluew";
+    this.className = "filter-button all active";
+    if (globalvariablemonth != 12) {
+      map.setFilter("data-driven-circles", null);
+      map.setFilter("heatmap", null);
+      map.setFilter("data-driven-circles", monthfilter);
+      map.setFilter("heatmap", monthfilter);
+    } else {
+      map.setFilter("data-driven-circles", null);
+      map.setFilter("heatmap", null);
+    }
+    globalThis.globalisclicked = 3;
+    popup.remove();
+  };
+
   let bluefilter1 = [];
   let redfilter1 = [
     "all",
@@ -360,6 +329,7 @@ map.on("load", () => {
     ],
     ["match", ["get", "mm"], [globalvariablemonth], true, false],
   ];
+
   //filterby function
   const mnthfilter = [];
   function filterBy(month) {
@@ -413,7 +383,9 @@ map.on("load", () => {
     globalThis.globalvariablemonth = month + 1;
   }
 
-  filterBy(10);
+  filterBy(11);
+
+  //Listen for slider input and invoke filterBy (month)
   document.getElementById("slider").addEventListener("input", (e) => {
     const month = parseInt(e.target.value, 10);
     filterBy(month);
@@ -422,6 +394,7 @@ map.on("load", () => {
   });
   renderListings([]);
 
+  //Listen for Reset View
   document.getElementById("reset-view").addEventListener("click", () => {
     // Fly to a random location
     map.flyTo({
