@@ -447,5 +447,6 @@ map.on("load", () => {
       zoom: 6.5,
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
     });
+    popup.remove();
   });
 });
