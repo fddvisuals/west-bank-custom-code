@@ -199,7 +199,7 @@ map.on("load", () => {
   });
   map.on("idle", () => {
     //1 copied from above which .. putting it here renders it automatically when loaded and when inputs are switched. Remove if problematic
-    renderList();
+    // renderList();
     // 1 ------ Until here..
     if (!map.getLayer("heatmap") || !map.getLayer("data-driven-circles")) {
       return;
