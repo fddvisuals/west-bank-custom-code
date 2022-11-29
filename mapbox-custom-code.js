@@ -435,7 +435,7 @@ map.on("load", () => {
     globalThis.globalvariablemonth = month + 1;
   }
 
-  filterBy(11);
+  filterBy(10);
   document.getElementById("slider").addEventListener("input", (e) => {
     const month = parseInt(e.target.value, 10);
     filterBy(month);
