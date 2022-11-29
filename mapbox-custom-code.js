@@ -159,18 +159,7 @@ map.on("load", () => {
   });
   map.on("movestart", () => {});
   map.on("moveend", () => {
-    const features = map.queryRenderedFeatures({
-      layers: ["data-driven-circles"],
-    });
-    if (features) {
-      const uniqueFeatures = getUniqueFeatures(features, "wb-id");
-      // Populate features for the listing overlay.
-      renderListings(uniqueFeatures);
-      // Clear the input container
-      filterEl.value = "";
-      // Store the current features in sn `wbevents` variable to later use for filtering on `keyup`.
-      wbevents = uniqueFeatures;
-    }
+    renderList();
   });
   map.on("mousemove", "data-driven-circles", (e) => {
     // Change the cursor style as a UI indicator.
@@ -210,18 +199,7 @@ map.on("load", () => {
   });
   map.on("idle", () => {
     //1 copied from above which .. putting it here renders it automatically when loaded and when inputs are switched. Remove if problematic
-    const features = map.queryRenderedFeatures({
-      layers: ["data-driven-circles"],
-    });
-    if (features) {
-      const uniqueFeatures = getUniqueFeatures(features, "wb-id");
-      // Populate features for the listing overlay.
-      renderListings(uniqueFeatures);
-      // Clear the input container
-      filterEl.value = "";
-      // Store the current features in sn `wbevents` variable to later use for filtering on `keyup`.
-      wbevents = uniqueFeatures;
-    }
+    renderList();
     // 1 ------ Until here..
     if (!map.getLayer("heatmap") || !map.getLayer("data-driven-circles")) {
       return;
@@ -454,3 +432,17 @@ map.on("load", () => {
     popup.remove();
   });
 });
+function renderList() {
+  const features = map.queryRenderedFeatures({
+    layers: ["data-driven-circles"],
+  });
+  if (features) {
+    const uniqueFeatures = getUniqueFeatures(features, "wb-id");
+    // Populate features for the listing overlay.
+    renderListings(uniqueFeatures);
+    // Clear the input container
+    filterEl.value = "";
+    // Store the current features in sn `wbevents` variable to later use for filtering on `keyup`.
+    wbevents = uniqueFeatures;
+  }
+}
