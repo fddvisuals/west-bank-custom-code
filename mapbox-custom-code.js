@@ -116,7 +116,7 @@ function popupGenerator(feature) {
     popup
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
-        `<div class="popup-wrapper"><div class="pop-title-wrapper red"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Type}</p><a href="${feature.properties.URL}" target="_blank" class="view-source-button-popup w-inline-block"><p class="paragraph-4">View Source</p><div class="icon-5 w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        `<div class="popup-wrapper"><div class="pop-title-wrapper red"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon red"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p><a href="${feature.properties.URL}" target="_blank" class="view-source-button-popup w-inline-block"><p class="paragraph-4">View Source</p><div class="icon-5 w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 6V8H5V19H16V14H18V20C18 20.2652 17.8946 20.5196 17.7071 20.7071C17.5196 20.8946 17.2652 21 17 21H4C3.73478 21 3.48043 20.8946 3.29289 20.7071C3.10536 20.5196 3 20.2652 3 20V7C3 6.73478 3.10536 6.48043 3.29289 6.29289C3.48043 6.10536 3.73478 6 4 6H10ZM21 3V11H19V6.413L11.207 14.207L9.793 12.793L17.585 5H13V3H21Z" fill="currentColor"></path>
         </svg>
         </div></a></div>`
@@ -126,7 +126,7 @@ function popupGenerator(feature) {
     popup
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
-        `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Type}</p><a href="${feature.properties.URL}" target="_blank" class="view-source-button-popup w-inline-block"><p class="paragraph-4">View Source</p><div class="icon-5 w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        `<div class="popup-wrapper"><div class="pop-title-wrapper blue"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon blue"><h4 class="popup-heading">${feature.properties.Type}</h4></div><p class="popup-para">${feature.properties.Notes}</p><a href="${feature.properties.URL}" target="_blank" class="view-source-button-popup w-inline-block"><p class="paragraph-4">View Source</p><div class="icon-5 w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 6V8H5V19H16V14H18V20C18 20.2652 17.8946 20.5196 17.7071 20.7071C17.5196 20.8946 17.2652 21 17 21H4C3.73478 21 3.48043 20.8946 3.29289 20.7071C3.10536 20.5196 3 20.2652 3 20V7C3 6.73478 3.10536 6.48043 3.29289 6.29289C3.48043 6.10536 3.73478 6 4 6H10ZM21 3V11H19V6.413L11.207 14.207L9.793 12.793L17.585 5H13V3H21Z" fill="currentColor"></path>
         </svg>
         </div></a></div>`
