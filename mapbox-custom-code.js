@@ -337,6 +337,7 @@ map.on("load", () => {
         map.setFilter("heatmap", blueall);
       }
       globalThis.globalisclicked = 1;
+      popup.remove();
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
@@ -350,6 +351,7 @@ map.on("load", () => {
         map.setFilter("heatmap", redall);
       }
       globalThis.globalisclicked = 2;
+      popup.remove();
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
@@ -365,6 +367,7 @@ map.on("load", () => {
         map.setFilter("heatmap", null);
       }
       globalThis.globalisclicked = 3;
+      popup.remove();
     };
   });
   let bluefilter1 = [];
@@ -437,6 +440,7 @@ map.on("load", () => {
     const month = parseInt(e.target.value, 10);
     filterBy(month);
     globalThis.globalvariablemonth = month + 1;
+    popup.remove();
   });
   renderListings([]);
 
