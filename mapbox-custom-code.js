@@ -198,7 +198,7 @@ map.on("load", () => {
     }
   });
   map.on("idle", () => {
-    renderList();
+    // renderList();
     if (!map.getLayer("heatmap") || !map.getLayer("data-driven-circles")) {
       return;
     }
