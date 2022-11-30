@@ -157,6 +157,7 @@ map.on("load", () => {
       zoom: 16,
     });
   });
+  renderList();
   map.on("movestart", () => {});
   map.on("moveend", () => {
     renderList();
@@ -285,6 +286,7 @@ map.on("load", () => {
       }
       globalThis.globalisclicked = 1;
       popup.remove();
+      renderList();
     };
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
@@ -299,6 +301,7 @@ map.on("load", () => {
       }
       globalThis.globalisclicked = 2;
       popup.remove();
+      renderList();
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
@@ -315,6 +318,7 @@ map.on("load", () => {
       }
       globalThis.globalisclicked = 3;
       popup.remove();
+      renderList();
     };
   });
   let bluefilter1 = [];
