@@ -156,6 +156,11 @@ map.on("load", () => {
       center: e.features[0].geometry.coordinates,
       zoom: 16,
     });
+    map.setLayoutProperty("data-driven-circles", "circle-sort-key", [
+      "*",
+      1,
+      ["get", "rank"],
+    ]);
   });
   map.on("movestart", () => {});
   map.on("moveend", () => {
