@@ -158,7 +158,7 @@ map.on("load", () => {
     });
     map.setLayoutProperty("data-driven-circles", "circle-sort-key", [
       "*",
-      1,
+      0,
       ["get", "rank"],
     ]);
   });
