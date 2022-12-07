@@ -151,8 +151,8 @@ function getUniqueFeatures(features, comparatorProperty) {
   return uniqueFeatures;
 }
 map.on("load", () => {
-  map.setFilter("data-driven-circles", redfilter);
-  map.setFilter("heatmap", redfilter);
+  map.setFilter("data-driven-circles", redfilter1);
+  map.setFilter("heatmap", redfilter1);
   map.on("click", "data-driven-circles", (e) => {
     map.flyTo({
       center: e.features[0].geometry.coordinates,
