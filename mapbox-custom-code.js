@@ -294,7 +294,18 @@ map.on("load", () => {
       popup.remove();
     };
     red.onclick = function (e) {
-      onLoadMlitants.call(this, blue, all, redfilter, redall);
+      blue.className = "filter-button bluew";
+      this.className = "filter-button red active";
+      all.className = "filter-button all";
+      if (globalvariablemonth != 12) {
+        map.setFilter("data-driven-circles", redfilter);
+        map.setFilter("heatmap", redfilter);
+      } else {
+        map.setFilter("data-driven-circles", redall);
+        map.setFilter("heatmap", redall);
+      }
+      globalThis.globalisclicked = 2;
+      popup.remove();
     };
     all.onclick = function (e) {
       red.className = "filter-button red";
@@ -401,26 +412,6 @@ map.on("load", () => {
     popup.remove();
   });
 });
-function onLoadMlitants(
-  this: GlobalEventHandlers,
-  blue,
-  all,
-  redfilter,
-  redall
-) {
-  blue.className = "filter-button bluew";
-  this.className = "filter-button red active";
-  all.className = "filter-button all";
-  if (globalvariablemonth != 12) {
-    map.setFilter("data-driven-circles", redfilter);
-    map.setFilter("heatmap", redfilter);
-  } else {
-    map.setFilter("data-driven-circles", redall);
-    map.setFilter("heatmap", redall);
-  }
-  globalThis.globalisclicked = 2;
-  popup.remove();
-}
 
 function renderList() {
   const features = map.queryRenderedFeatures({
