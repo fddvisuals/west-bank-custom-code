@@ -280,7 +280,6 @@ map.on("load", () => {
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
-      all.className = "filter-button all";
       if (globalvariablemonth != 12) {
         map.setFilter("data-driven-circles", bluefilter);
         map.setFilter("heatmap", bluefilter);
@@ -294,10 +293,8 @@ map.on("load", () => {
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
       this.className = "filter-button red active";
-      all.className = "filter-button all";
       if (globalvariablemonth != 12) {
         map.setFilter("data-driven-circles", redfilter);
-        map.setFilter("heatmap", redfilter);
       } else {
         map.setFilter("data-driven-circles", redall);
         map.setFilter("heatmap", redall);
@@ -306,9 +303,6 @@ map.on("load", () => {
       popup.remove();
     };
     all.onclick = function (e) {
-      red.className = "filter-button red";
-      blue.className = "filter-button bluew";
-      this.className = "filter-button all active";
       if (globalvariablemonth != 12) {
         map.setFilter("data-driven-circles", null);
         map.setFilter("heatmap", null);
@@ -409,6 +403,9 @@ map.on("load", () => {
     });
     popup.remove();
   });
+
+  map.setFilter("data-driven-circles", redall);
+  map.setFilter("heatmap", redall);
 });
 function renderList() {
   const features = map.queryRenderedFeatures({
