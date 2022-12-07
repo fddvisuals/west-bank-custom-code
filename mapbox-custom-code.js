@@ -406,6 +406,8 @@ map.on("load", () => {
 
   map.setFilter("data-driven-circles", redall);
   map.setFilter("heatmap", redall);
+  map.setFilter("data-driven-circles", redall);
+  map.setFilter("heatmap", redall);
 });
 function renderList() {
   const features = map.queryRenderedFeatures({
