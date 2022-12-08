@@ -299,7 +299,6 @@ map.on("load", () => {
       this.className = "filter-button red active";
       if (globalvariablemonth != 12) {
         map.setFilter("data-driven-circles", redfilter);
-        map.setFilter("heatmap", redfilter);
       } else {
         map.setFilter("data-driven-circles", redall);
         map.setFilter("heatmap", redall);
