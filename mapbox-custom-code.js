@@ -87,23 +87,7 @@ const months = [
 ];
 let allfilter = [
   "all",
-  [
-    "match",
-    ["get", "Group"],
-    [
-      "Militants",
-      "Militant",
-      "Clash",
-      "IDF, Shin Bet",
-      "IDF",
-      "Shin Bet",
-      "Israel Police, Shin Bet",
-      "Israel Police",
-      "IDF, Israel Police",
-    ],
-    true,
-    false,
-  ],
+  ["match", ["get", "Group"], ["Militants", "Militant"], true, false],
 ];
 var globalvariablemonth;
 var globalisclicked = 3;
@@ -197,7 +181,7 @@ map.on("load", () => {
           false,
         ],
         filtered.map((feature) => {
-          return feature.properties.Group;
+          return feature.properties.id;
         }),
         true,
         false,
