@@ -78,7 +78,7 @@ function renderListings(features) {
     // Hide the filter input
     filterEl.parentNode.style.display = "none";
     // remove features filter
-    map.setFilter("data-driven-circles", ["has", "Group"]);
+    // map.setFilter("data-driven-circles", ["has", "Group"]);
   }
 }
 const months = [
