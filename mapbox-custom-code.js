@@ -29,7 +29,11 @@ const popup = new mapboxgl.Popup({
 const filterGroup = document.getElementById("filter-group");
 const filterEl = document.getElementById("feature-filter");
 const listingEl = document.getElementById("feature-listing");
-Click();
+
+function clickRed() {
+  $("#mil-button").click();
+}
+clickRed();
 
 function renderListings(features) {
   const empty = document.createElement("p");
