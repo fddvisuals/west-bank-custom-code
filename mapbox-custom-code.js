@@ -204,6 +204,21 @@ map.on("load", () => {
         true,
         false,
       ]);
+      map.setFilter("heatmap", [
+        "all",
+        [
+          "match",
+          ["get", "Group"],
+          ["Militants", "Militant", "Clash"],
+          true,
+          false,
+        ],
+        filtered.map((feature) => {
+          return feature.properties.id;
+        }),
+        true,
+        false,
+      ]);
     }
   });
   map.on("idle", () => {
