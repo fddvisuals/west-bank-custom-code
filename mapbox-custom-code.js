@@ -25,10 +25,12 @@ let wbevents = [];
 const popup = new mapboxgl.Popup({
   closeButton: true,
 });
-$("#mil-button").click();
+
 const filterGroup = document.getElementById("filter-group");
 const filterEl = document.getElementById("feature-filter");
 const listingEl = document.getElementById("feature-listing");
+Click();
+
 function renderListings(features) {
   const empty = document.createElement("p");
   // Clear any existing listings
