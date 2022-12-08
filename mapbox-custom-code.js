@@ -326,7 +326,7 @@ map.on("load", () => {
   //filterby function
   const mnthfilter = [];
   function filterBy(month) {
-    if (month == "12") {
+    if (month == "11") {
       map.setFilter("data-driven-circles", allfilter);
       map.setFilter("heatmap", allfilter);
     } else {
