@@ -105,7 +105,7 @@ let allfilter = [
       true,
       false,
     ],
-    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+    ["match", ["get", "mm"], [globalvariablemonth + 1], true, false],
   ],
 ];
 var globalvariablemonth;
@@ -322,25 +322,13 @@ map.on("load", () => {
       popup.remove();
     };
   });
-  let bluefilter1 = [];
-  let redfilter1 = [
-    "all",
-    [
-      "match",
-      ["get", "Group"],
-      ["Militants", "Militant", "Clash"],
-      true,
-      false,
-    ],
-    ["match", ["get", "mm"], [globalvariablemonth], true, false],
-  ];
 
   //filterby function
   const mnthfilter = [];
   function filterBy(month) {
     if (month == "11") {
-      map.setFilter("data-driven-circles", allfilter);
-      map.setFilter("heatmap", allfilter);
+      map.setFilter("data-driven-circles", redall);
+      map.setFilter("heatmap", redall);
     } else {
       if (globalisclicked == 1) {
         let mnthfilter = [
@@ -359,7 +347,7 @@ map.on("load", () => {
             true,
             false,
           ],
-          ["match", ["get", "mm"], [month], true, false],
+          ["match", ["get", "mm"], [month + 1], true, false],
         ];
         map.setFilter("data-driven-circles", mnthfilter);
         map.setFilter("heatmap", mnthfilter);
