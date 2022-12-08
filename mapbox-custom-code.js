@@ -10,29 +10,11 @@ const map = new mapboxgl.Map({
   center: [35.1708741, 31.9485955],
   minZoom: 6.5,
   //maxBounds: bounds
-  filter: [
-    "all",
-    [
-      "match",
-      ["get", "Group"],
-      ["Militants", "Militant", "Clash"],
-      true,
-      false,
-    ],
-  ],
 });
 let wbevents = [];
 const popup = new mapboxgl.Popup({
   closeButton: true,
 });
-
-let redall2 = [
-  "all",
-  ["match", ["get", "Group"], ["Militants", "Militant", "Clash"], true, false],
-  // ["match", ["get", "mm"], [globalvariablemonth], true, false],
-];
-
-map.setFilter("data-driven-circles", redall2);
 
 const filterGroup = document.getElementById("filter-group");
 const filterEl = document.getElementById("feature-filter");
@@ -170,6 +152,18 @@ function getUniqueFeatures(features, comparatorProperty) {
   return uniqueFeatures;
 }
 map.on("load", () => {
+  let redall2 = [
+    "all",
+    [
+      "match",
+      ["get", "Group"],
+      ["Militants", "Militant", "Clash"],
+      true,
+      false,
+    ],
+    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
+  map.setFilter("data-driven-circles", redall2);
   map.on("click", "data-driven-circles", (e) => {
     map.flyTo({
       center: e.features[0].geometry.coordinates,
