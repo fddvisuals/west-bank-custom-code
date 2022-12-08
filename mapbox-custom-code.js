@@ -26,6 +26,11 @@ const popup = new mapboxgl.Popup({
   closeButton: true,
 });
 
+map.setFilter([
+  "all",
+  ["match", ["get", "Group"], ["Militants", "Militant", "Clash"], true, false],
+]);
+
 const filterGroup = document.getElementById("filter-group");
 const filterEl = document.getElementById("feature-filter");
 const listingEl = document.getElementById("feature-listing");
