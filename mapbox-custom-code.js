@@ -151,6 +151,19 @@ function getUniqueFeatures(features, comparatorProperty) {
   return uniqueFeatures;
 }
 map.on("load", () => {
+  let redfilter = [
+    "all",
+    [
+      "match",
+      ["get", "Group"],
+      ["Militants", "Militant", "Clash"],
+      true,
+      false,
+    ],
+    ["match", ["get", "mm"], [globalvariablemonth], true, false],
+  ];
+  map.setFilter("data-driven-circles", redfilter);
+
   map.on("click", "data-driven-circles", (e) => {
     map.flyTo({
       center: e.features[0].geometry.coordinates,
@@ -403,11 +416,6 @@ map.on("load", () => {
     });
     popup.remove();
   });
-
-  map.setFilter("data-driven-circles", redall);
-  map.setFilter("heatmap", redall);
-  map.setFilter("data-driven-circles", redall);
-  map.setFilter("heatmap", redall);
 });
 function renderList() {
   const features = map.queryRenderedFeatures({
