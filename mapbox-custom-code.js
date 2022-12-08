@@ -26,10 +26,13 @@ const popup = new mapboxgl.Popup({
   closeButton: true,
 });
 
-map.setFilter([
+let redall2 = [
   "all",
   ["match", ["get", "Group"], ["Militants", "Militant", "Clash"], true, false],
-]);
+  // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+];
+
+map.setFilter("data-driven-circles", redall2);
 
 const filterGroup = document.getElementById("filter-group");
 const filterEl = document.getElementById("feature-filter");
