@@ -328,9 +328,13 @@ map.on("load", () => {
   const mnthfilter = [];
   function filterBy(month) {
     if (month == "12") {
-      map.setFilter("data-driven-circles", allfilter);
-      map.setFilter("heatmap", allfilter);
-      console.log("in");
+      if (globalisclicked == 1) {
+        map.setFilter("data-driven-circles", blueall);
+        map.setFilter("heatmap", blueall);
+      } else {
+        map.setFilter("data-driven-circles", redall);
+        map.setFilter("heatmap", redall);
+      }
     } else {
       if (globalisclicked == 1) {
         let mnthfilter = [
