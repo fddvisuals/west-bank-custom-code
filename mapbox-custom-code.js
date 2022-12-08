@@ -257,12 +257,22 @@ map.on("load", () => {
       [
         "match",
         ["get", "Group"],
-        ["Militants", "Militant", "Clash"],
+        [
+          "Militants",
+          "Militant",
+          "Clash",
+          "IDF, Shin Bet",
+          "IDF",
+          "Shin Bet",
+          "Israel Police, Shin Bet",
+          "Israel Police",
+          "IDF, Israel Police",
+        ],
         true,
         false,
       ],
-      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
+    // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
