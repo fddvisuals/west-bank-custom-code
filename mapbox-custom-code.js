@@ -10,16 +10,6 @@ const map = new mapboxgl.Map({
   center: [35.1708741, 31.9485955],
   minZoom: 6.5,
   //maxBounds: bounds
-  filter: [
-    "all",
-    [
-      "match",
-      ["get", "Group"],
-      ["Militants", "Militant", "Clash"],
-      true,
-      false,
-    ][("match", ["get", "mm"], [globalvariablemonth], true, false)],
-  ],
 });
 let wbevents = [];
 const popup = new mapboxgl.Popup({
