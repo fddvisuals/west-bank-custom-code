@@ -284,7 +284,7 @@ map.on("load", () => {
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
-      if (globalvariablemonth != 13) {
+      if (globalvariablemonth != 12) {
         map.setFilter("data-driven-circles", bluefilter);
         map.setFilter("heatmap", bluefilter);
       } else {
