@@ -358,7 +358,7 @@ map.on("load", () => {
             true,
             false,
           ],
-          ["match", ["get", "mm"], [month + 1], true, false],
+          ["match", ["get", "mm"], [month], true, false],
         ];
         map.setFilter("data-driven-circles", mnthfilter);
         map.setFilter("heatmap", mnthfilter);
