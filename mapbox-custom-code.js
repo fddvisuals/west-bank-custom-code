@@ -83,6 +83,7 @@ const months = [
   "September 2022",
   "October 2022",
   "November 2022",
+  "December 2022",
   "All | March to November",
 ];
 let allfilter = [
@@ -285,7 +286,7 @@ map.on("load", () => {
     blue.onclick = function (e) {
       red.className = "filter-button red";
       this.className = "filter-button bluew active";
-      if (globalvariablemonth != 12) {
+      if (globalvariablemonth != 13) {
         map.setFilter("data-driven-circles", bluefilter);
         map.setFilter("heatmap", bluefilter);
       } else {
@@ -298,7 +299,7 @@ map.on("load", () => {
     red.onclick = function (e) {
       blue.className = "filter-button bluew";
       this.className = "filter-button red active";
-      if (globalvariablemonth != 12) {
+      if (globalvariablemonth != 13) {
         map.setFilter("data-driven-circles", redfilter);
         map.setFilter("heatmap", redfilter);
       } else {
@@ -309,7 +310,7 @@ map.on("load", () => {
       popup.remove();
     };
     all.onclick = function (e) {
-      if (globalvariablemonth != 12) {
+      if (globalvariablemonth != 13) {
         map.setFilter("data-driven-circles", null);
         map.setFilter("heatmap", null);
         map.setFilter("data-driven-circles", monthfilter);
@@ -376,7 +377,7 @@ map.on("load", () => {
     globalThis.globalvariablemonth = month + 1;
   }
 
-  filterBy(11);
+  filterBy(12);
 
   //Listen for slider input and invoke filterBy (month)
   document.getElementById("slider").addEventListener("input", (e) => {
