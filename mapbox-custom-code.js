@@ -268,7 +268,7 @@ map.on("load", () => {
         true,
         false,
       ],
-      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+      ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     let redall = [
       "all",
@@ -279,7 +279,7 @@ map.on("load", () => {
         true,
         false,
       ],
-      // ["match", ["get", "mm"], [globalvariablemonth], true, false],
+      ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     blue.onclick = function (e) {
       red.className = "filter-button red";
