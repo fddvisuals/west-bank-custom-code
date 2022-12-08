@@ -330,6 +330,7 @@ map.on("load", () => {
     if (month == "12") {
       map.setFilter("data-driven-circles", allfilter);
       map.setFilter("heatmap", allfilter);
+      console.log("in");
     } else {
       if (globalisclicked == 1) {
         let mnthfilter = [
