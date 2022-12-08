@@ -90,7 +90,7 @@ let allfilter = [
   ["match", ["get", "Group"], ["Militants", "Militant"], true, false],
 ];
 var globalvariablemonth;
-var globalisclicked = 3;
+var globalisclicked = 1;
 
 //Generates popup for listing and for map mousover
 function popupGenerator(feature) {
