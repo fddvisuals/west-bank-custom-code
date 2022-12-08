@@ -196,18 +196,18 @@ map.on("load", () => {
     // Populate the sidebar with filtered results
     renderListings(filtered);
     // Set the filter to populate features into the layer.
-    if (filtered.length) {
-      map.setFilter("data-driven-circles", [
-        "match",
-        ["get", "Group"],
-        filtered.map((feature) => {
-          return feature.properties.Group;
-        }),
-        true,
-        false,
-      ]);
-    }
-  });
+  //   if (filtered.length) {
+  //     map.setFilter("data-driven-circles", [
+  //       "match",
+  //       ["get", "Group"],
+  //       filtered.map((feature) => {
+  //         return feature.properties.Group;
+  //       }),
+  //       true,
+  //       false,
+  //     ]);
+  //   }
+  // });
   map.on("idle", () => {
     renderList();
     if (!map.getLayer("heatmap") || !map.getLayer("data-driven-circles")) {
