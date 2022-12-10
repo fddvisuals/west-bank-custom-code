@@ -30,10 +30,7 @@ function renderListings(features) {
       itemLink.href = "#";
       itemLink.target = "_blank";
       itemLink.className = "temp-link-block w-inline block";
-      if (
-        feature.properties.Group == "Terrorists" ||
-        feature.properties.Group == "Terrorists"
-      ) {
+      if (feature.properties.Group == "Terrorists") {
         //revert this if it gets too.. get older version of this html
         itemLink.innerHTML = `<div class="title-wrapper-listing"><div class="list-blue-title"><img src="${feature.properties.type_icon_url}" loading="lazy" alt="" class="listing-icon red"><p class="bold-listing-title-mil"> ${feature.properties.Type} | ${feature.properties.Group} <br><span class="group-name-span">${feature.properties.TerroristGroupTags}</span></p></div><div class="subtitle-wrapper"><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac6b1ef242239cb16_Vector-1.svg" loading="lazy" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.formatted_date}</p></div><div class="listing-subtitle-wrapper"><img src="https://uploads-ssl.webflow.com/6352289bab9b05d2a93f26f6/6381d9eac50a51f40b798700_Vector.svg" loading="lazy" alt="" class="listing-sub-icon"><p class="bold-listing-subtitle">${feature.properties.Geocode_Name}</p></div></div></div><p class="listing-text">${feature.properties.Notes}</p>`;
       } else {
@@ -94,7 +91,6 @@ let allfilter = [
       ["get", "Group"],
       [
         "Terrorists",
-        "Terrorists",
         "Clash",
         "IDF, Shin Bet",
         "IDF",
@@ -114,10 +110,7 @@ var globalisclicked = 2;
 
 //Generates popup for listing and for map mousover
 function popupGenerator(feature) {
-  if (
-    feature.properties.Group == "Terrorists" ||
-    feature.properties.Group == "Terrorists"
-  ) {
+  if (feature.properties.Group == "Terrorists") {
     popup
       .setLngLat(feature.geometry.coordinates)
       .setHTML(
@@ -193,13 +186,7 @@ map.on("load", () => {
     if (filtered.length) {
       map.setFilter("data-driven-circles", [
         "all",
-        [
-          "match",
-          ["get", "Group"],
-          ["Terrorists", "Terrorists", "Clash"],
-          true,
-          false,
-        ],
+        ["match", ["get", "Group"], ["Terrorists", "Clash"], true, false],
         filtered.map((feature) => {
           return feature.properties.id;
         }),
@@ -239,13 +226,7 @@ map.on("load", () => {
     ];
     let redfilter = [
       "all",
-      [
-        "match",
-        ["get", "Group"],
-        ["Terrorists", "Terrorists", "Clash"],
-        true,
-        false,
-      ],
+      ["match", ["get", "Group"], ["Terrorists", "Clash"], true, false],
       ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
 
@@ -274,13 +255,7 @@ map.on("load", () => {
     ];
     let redall = [
       "all",
-      [
-        "match",
-        ["get", "Group"],
-        ["Terrorists", "Terrorists", "Clash"],
-        true,
-        false,
-      ],
+      ["match", ["get", "Group"], ["Terrorists", "Clash"], true, false],
       // ["match", ["get", "mm"], [globalvariablemonth], true, false],
     ];
     blue.onclick = function (e) {
@@ -384,13 +359,7 @@ map.on("load", () => {
       } else if (globalisclicked == 2) {
         let mnthfilter = [
           "all",
-          [
-            "match",
-            ["get", "Group"],
-            ["Terrorists", "Terrorists", "Clash"],
-            true,
-            false,
-          ],
+          ["match", ["get", "Group"], ["Terrorists", "Clash"], true, false],
           ["match", ["get", "mm"], [month + 1], true, false],
         ];
         map.setFilter("data-driven-circles", mnthfilter);
